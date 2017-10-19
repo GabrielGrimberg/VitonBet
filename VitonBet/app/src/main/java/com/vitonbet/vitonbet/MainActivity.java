@@ -1,3 +1,11 @@
+/**
+ * Name: VitonBet
+ * Type: Group Assignment
+ * Class: MainActivity
+ * Revision: 1.0
+ * Notes: TBA
+ */
+
 package com.vitonbet.vitonbet;
 
 import android.support.v7.app.AppCompatActivity;
