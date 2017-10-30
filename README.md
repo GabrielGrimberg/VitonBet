@@ -5,10 +5,6 @@
 </p>
 
 <p align="center">
-	<img src="https://github.com/GabrielGrimberg/VitonBet/blob/master/Design%20Document/Readme-Logos/Intro.png?raw=true" alt="Intro"/>
-</p>
-
-<p align="center">
 	<img src="https://github.com/GabrielGrimberg/VitonBet/blob/master/Design%20Document/Readme-Logos/Gabriel.png?raw=true" alt="G"/>
 </p>
 
@@ -19,6 +15,10 @@
 
 <p align="center">
 	<img src="https://github.com/GabrielGrimberg/VitonBet/blob/master/Design%20Document/Readme-Logos/Daniel.png?raw=true" alt="D"/>
+</p>
+
+<p align="center">
+	<img src="https://github.com/GabrielGrimberg/VitonBet/blob/master/Design%20Document/Readme-Logos/Intro.png?raw=true" alt="Intro"/>
 </p>
 
 <p align="center">
