@@ -38,10 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //progressDialog = new ProgressDialog(this);
 
         btnSubmit = (Button) findViewById(R.id.btnRegister);
-
         emailField = (EditText) findViewById(R.id.emailEntry);
         passField = (EditText) findViewById(R.id.passwordEntry);
-
         signInLink = (TextView) findViewById(R.id.signIn);
 
         btnSubmit.setOnClickListener(this);
