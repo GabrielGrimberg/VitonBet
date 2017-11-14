@@ -38,8 +38,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //Track if user is logged in or not
         if(firebaseAuth.getCurrentUser() != null)
         {
-            //TODO
             //Profile activity.
+            finish(); //Before starting another activity finish another activity.
+            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
         }
 
         //progressDialog = new ProgressDialog(this);
@@ -92,8 +93,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                         if(task.isSuccessful())
                         {
-                            //TODO
                             //Start Profile activity.
+                            finish(); //Before starting another activity finish another activity.
+                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                         }
                     }
                 });

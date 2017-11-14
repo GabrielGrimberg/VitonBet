@@ -1,5 +1,6 @@
 package vitonbet.com.vitonbet;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //Firebase Auth Object
     private FirebaseAuth firebaseAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -34,6 +36,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         firebaseAuth = FirebaseAuth.getInstance();
+
+        //Track if user is logged in or not
+        if(firebaseAuth.getCurrentUser() != null)
+        {
+            //Profile activity.
+            finish(); //Before starting another activity finish another activity.
+            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+        }
 
         //progressDialog = new ProgressDialog(this);
 
@@ -84,8 +94,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         {
                             //Successfully registered and logged in.
                             //Go to main screen activity.
-                            //For now display message
-                            Toast.makeText(MainActivity.this, "Registered Successfuly.", Toast.LENGTH_SHORT).show();
+                            finish(); //Before starting another activity finish another activity.
+                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+
                         }
                         else
                         {
@@ -106,8 +117,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(view == signInLink)
         {
-            //TODO
             //Open Login Activity.
+            startActivity(new Intent(this, LoginActivity.class));
         }
     }
 }
