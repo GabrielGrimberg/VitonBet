@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="vitonbet.com.vitonbet.MainActivity">
+    tools:context="vitonbet.com.vitonbet.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         android:layout_centerVertical="true"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="96dp">
+        tools:layout_editor_absoluteY="89dp">
 
         <EditText
             android:id="@+id/emailEntry"
@@ -32,30 +32,29 @@
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/btnRegister"
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="Submit" />
+            android:text="Login" />
 
         <TextView
-            android:id="@+id/signIn"
+            android:id="@+id/signUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Already Registered? Sign In Here"
+            android:text="Not Registered? Sign Up Here"
             android:textAlignment="center" />
-
     </LinearLayout>
 
     <TextView
-        android:id="@+id/regLogo"
+        android:id="@+id/loginLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register To VitonBet"
+        android:text="Sign Into VitonBet"
         android:textAllCaps="true"
         android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="45dp" />
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="40dp" />
 
 </android.support.constraint.ConstraintLayout>
