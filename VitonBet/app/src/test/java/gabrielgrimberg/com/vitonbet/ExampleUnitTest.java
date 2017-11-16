@@ -1,4 +1,4 @@
-package vitonbet.com.vitonbet;
+package gabrielgrimberg.com.vitonbet;
 
 import org.junit.Test;
 

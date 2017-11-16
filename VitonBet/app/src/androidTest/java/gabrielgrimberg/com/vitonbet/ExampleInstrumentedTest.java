@@ -1,4 +1,4 @@
-package vitonbet.com.vitonbet;
+package gabrielgrimberg.com.vitonbet;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("vitonbet.com.vitonbet", appContext.getPackageName());
+        assertEquals("gabrielgrimberg.com.vitonbet", appContext.getPackageName());
     }
 }
