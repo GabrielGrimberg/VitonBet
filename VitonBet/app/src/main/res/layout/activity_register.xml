@@ -8,43 +8,111 @@
 
     <EditText
         android:id="@+id/nameField"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignTop="@+id/tvEnterDetails"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="John Appleseed"
-        android:inputType="textPersonName" />
+        android:hint="Enter a username"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart" />
 
     <EditText
         android:id="@+id/emailField"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/nameField"
         android:layout_below="@+id/nameField"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
         android:ems="10"
-        android:hint="example@example.com"
-        android:inputType="textEmailAddress" />
+        android:hint="Enter an email"
+        android:inputType="textEmailAddress"
+        android:textAlignment="viewStart" />
 
     <EditText
         android:id="@+id/passwordField"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/emailField"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_alignStart="@+id/emailField"
+        android:layout_below="@+id/tvEnterPW"
         android:ems="10"
-        android:hint="Secret Password"
-        android:inputType="textPassword" />
+        android:hint="Enter a password"
+        android:inputType="textPassword"
+        android:textAlignment="viewStart" />
 
     <Button
         android:id="@+id/registerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordField"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="78dp"
-        android:text="Sign Up" />
+        android:layout_marginBottom="14dp"
+        android:text="Register"
+        android:textAppearance="@style/TextAppearance.AppCompat.Notification.Title" />
+
+    <EditText
+        android:id="@+id/repasswordField"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/passwordField"
+        android:layout_below="@+id/passwordField"
+        android:ems="10"
+        android:hint="Enter that password again"
+        android:inputType="textPassword"
+        android:textAlignment="viewStart" />
+
+    <TextView
+        android:id="@+id/tvEnterDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/nameField"
+        android:layout_marginTop="68dp"
+        android:fontFamily="monospace"
+        android:text="Enter your details:"
+        android:textAlignment="center"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvEnterPW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/passwordField"
+        android:layout_centerVertical="true"
+        android:fontFamily="monospace"
+        android:text="Enter a strong password:"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvEnterDOB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/dobField"
+        android:layout_below="@+id/repasswordField"
+        android:layout_marginTop="17dp"
+        android:fontFamily="monospace"
+        android:text="Date of Birth:"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/dobField"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/repasswordField"
+        android:layout_below="@+id/tvEnterDOB"
+        android:ems="10"
+        android:hint="DD/MM/YYYY"
+        android:inputType="date"
+        android:textAlignment="viewStart" />
+
+    <EditText
+        android:id="@+id/phoneField"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/emailField"
+        android:layout_below="@+id/emailField"
+        android:ems="10"
+        android:hint="Enter your mobile number"
+        android:inputType="phone"
+        android:textAlignment="viewStart" />
 </RelativeLayout>

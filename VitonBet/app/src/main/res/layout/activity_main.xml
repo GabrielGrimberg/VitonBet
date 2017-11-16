@@ -7,8 +7,12 @@
     tools:context="gabrielgrimberg.com.vitonbet.MainActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
         android:text="VitonBet in Dev!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -19,6 +23,9 @@
         android:id="@+id/signoutField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="94dp"
         android:text="Logout"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="144dp" />
