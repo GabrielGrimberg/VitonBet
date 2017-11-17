@@ -45,11 +45,13 @@
         android:id="@+id/registerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/dobField"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="14dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_shapebtn"
+        android:elevation="0dp"
         android:text="Register"
-        android:textAppearance="@style/TextAppearance.AppCompat.Notification.Title" />
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/repasswordField"
@@ -68,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/nameField"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="81dp"
         android:fontFamily="monospace"
         android:text="Enter your details:"
         android:textAlignment="center"
@@ -127,5 +129,6 @@
         android:layout_above="@+id/nameField"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="16dp"
+        android:scaleType="fitCenter"
         app:srcCompat="@drawable/ai_primarylogowhite" />
 </RelativeLayout>

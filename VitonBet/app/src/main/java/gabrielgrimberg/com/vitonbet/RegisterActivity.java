@@ -99,9 +99,10 @@ public class RegisterActivity extends AppCompatActivity
                        DatabaseReference current_user_db = xDatabase.child(user_id);
 
                        current_user_db.child("username").setValue(name);
+                       current_user_db.child("email").setValue(email);
                        current_user_db.child("dob").setValue(dob);
                        current_user_db.child("phone").setValue(phone);
-                       current_user_db.child("email").setValue(email);
+
 
                        xProgress.dismiss();
 
