@@ -1,3 +1,15 @@
+/*
+Name: RegisterActivity
+
+Description: - Activity for a user to Register.
+             - Register with: Username, Email, Password, Date of Birth and Phone Number.
+             - UI Enhanced.
+
+TODO 1 - Extra layer of error checking.
+
+Last updated: 17th of November.
+ */
+
 package gabrielgrimberg.com.vitonbet;
 
 import android.app.ProgressDialog;

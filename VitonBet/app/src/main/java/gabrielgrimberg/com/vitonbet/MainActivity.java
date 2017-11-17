@@ -1,3 +1,21 @@
+/*
+Application Name:   VitonBet
+Application Status: In Development for Stable Release.
+Version:            v0.1
+
+Name: MainActivity
+
+Description: - The heart of the app.
+             - Main Activity to display events.
+             - If users is not logged in activity loads up with the Login Activity.
+
+TODO 1. Navigator (Bottom Navigator)
+TODO 2. List Events (Where user can click and it will load another activity to place bet).
+TODO 3. UI Improvements.
+
+Last updated: 17th of November.
+ */
+
 package gabrielgrimberg.com.vitonbet;
 
 import android.content.Intent;

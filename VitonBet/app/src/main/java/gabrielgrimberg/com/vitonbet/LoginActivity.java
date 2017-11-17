@@ -1,3 +1,15 @@
+/*
+Name: LoginActivity
+
+Description: - Activity for a user to Login.
+             - Login with Email and Password.
+             - UI Enhanced.
+
+TODO 1 - Extra layer of error checking.
+
+Last updated: 17th of November.
+ */
+
 package gabrielgrimberg.com.vitonbet;
 
 import android.app.ProgressDialog;
