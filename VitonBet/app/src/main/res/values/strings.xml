@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">VitonBet</string>
+    <string name="register_name">Register</string>
+    <string name="login_name">Login</string>
 </resources>

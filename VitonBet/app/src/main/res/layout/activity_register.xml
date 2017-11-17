@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#87b14d"
     tools:context="gabrielgrimberg.com.vitonbet.RegisterActivity">
-
     <EditText
         android:id="@+id/nameField"
         android:layout_width="300dp"
@@ -35,7 +34,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/emailField"
-        android:layout_below="@+id/tvEnterPW"
+        android:layout_below="@+id/tvEnterEmailLogin"
         android:ems="10"
         android:hint="Enter a password"
         android:inputType="textPassword"
@@ -78,7 +77,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvEnterPW"
+        android:id="@+id/tvEnterEmailLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/passwordField"
@@ -124,11 +123,11 @@
 
     <ImageView
         android:id="@+id/ivVitonBet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
         android:layout_above="@+id/nameField"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="16dp"
+        android:layout_centerHorizontal="true"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/ai_primarylogowhite" />
 </RelativeLayout>
+

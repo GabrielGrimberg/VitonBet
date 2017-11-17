@@ -4,6 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#87b14d"
     tools:context="gabrielgrimberg.com.vitonbet.LoginActivity">
+
+    <ImageView
+        android:id="@+id/ivVitonBet"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="435dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ai_primarylogowhite" />
+
+    <TextView
+        android:id="@+id/tvEnterEmailLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/loginPWField"
+        android:layout_alignStart="@+id/emailLoginField"
+        android:layout_marginBottom="42dp"
+        android:fontFamily="monospace"
+        android:text="Enter your email"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvEnterPWLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/loginPWField"
+        android:layout_below="@+id/emailLoginField"
+        android:layout_marginTop="16dp"
+        android:fontFamily="monospace"
+        android:text="Enter your password"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvRegisterLogin"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/loginPWField"
+        android:layout_below="@+id/loginPWField"
+        android:layout_marginTop="18dp"
+        android:fontFamily="monospace"
+        android:text="Not Registered? Click Register Now!"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/emailLoginField"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="111dp"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/loginPWField"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/emailLoginField"
+        android:layout_below="@+id/emailLoginField"
+        android:layout_marginTop="31dp"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvRegisterLogin"
+        android:layout_below="@+id/tvRegisterLogin"
+        android:background="@drawable/rounded_shapebtn"
+        android:elevation="0dp"
+        android:text="Login"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/registerLBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/tvRegisterLogin"
+        android:layout_below="@+id/tvRegisterLogin"
+        android:background="@drawable/rounded_shapebtn"
+        android:elevation="0dp"
+        android:text="Register"
+        android:textColor="#FFFFFF" />
+
 
 </RelativeLayout>
