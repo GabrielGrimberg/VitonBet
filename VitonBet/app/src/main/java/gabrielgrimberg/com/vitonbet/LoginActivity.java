@@ -1,5 +1,6 @@
 package gabrielgrimberg.com.vitonbet;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -31,6 +32,8 @@ public class LoginActivity extends AppCompatActivity
     //Access the login
     private FirebaseAuth  xAuth;
 
+    private ProgressDialog xProgress;
+
     private DatabaseReference xDatabase;
 
     @Override
@@ -43,6 +46,8 @@ public class LoginActivity extends AppCompatActivity
 
         //Check inside the Users table.
         xDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
+
+        xProgress = new ProgressDialog(this);
 
         xLoginEmailField = (EditText) findViewById(R.id.emailLoginField);
         xLoginPasswordField = (EditText) findViewById(R.id.loginPWField);
@@ -80,6 +85,9 @@ public class LoginActivity extends AppCompatActivity
 
         if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password))
         {
+            xProgress.setMessage("Logging In...");
+            xProgress.show();
+
             xAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>()
             {
                 @Override
@@ -88,19 +96,32 @@ public class LoginActivity extends AppCompatActivity
                     if(task.isSuccessful())
                     {
                         checkUserExist();
-
                     }
                     else
                     {
+                        xProgress.dismiss();
+
                         //TODO
                         //Better error checking.
                         Toast.makeText(LoginActivity.this,
                                 "Either Password or Email is wrong.",
                                 Toast.LENGTH_LONG).show();
+
                     }
 
                 }
             });
+        }
+        else
+        {
+            xProgress.dismiss();
+
+            //TODO
+            //Better error checking.
+            Toast.makeText(LoginActivity.this,
+                    "Why did you leave some fields blank?",
+                    Toast.LENGTH_LONG).show();
+
         }
     }
 
@@ -118,12 +139,16 @@ public class LoginActivity extends AppCompatActivity
                 //If it has the user_id.
                 if(dataSnapshot.hasChild(user_id))
                 {
+                    xProgress.dismiss();
+
                     Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
                     mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(mainIntent);
                 }
                 else
                 {
+                    xProgress.dismiss();
+
                     //TODO
                     //Better error checking.
                     Toast.makeText(LoginActivity.this,
