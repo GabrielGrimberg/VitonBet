@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#87b14d"
     tools:context="gabrielgrimberg.com.vitonbet.RegisterActivity">
 
     <EditText
@@ -67,10 +68,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/nameField"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="72dp"
         android:fontFamily="monospace"
         android:text="Enter your details:"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textStyle="bold" />
 
     <TextView
@@ -81,6 +83,7 @@
         android:layout_centerVertical="true"
         android:fontFamily="monospace"
         android:text="Enter a strong password:"
+        android:textColor="#FFFFFF"
         android:textStyle="bold" />
 
     <TextView
@@ -92,6 +95,7 @@
         android:layout_marginTop="17dp"
         android:fontFamily="monospace"
         android:text="Date of Birth:"
+        android:textColor="#FFFFFF"
         android:textStyle="bold" />
 
     <EditText
@@ -115,4 +119,13 @@
         android:hint="Enter your mobile number"
         android:inputType="phone"
         android:textAlignment="viewStart" />
+
+    <ImageView
+        android:id="@+id/ivVitonBet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/nameField"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@drawable/ai_primarylogowhite" />
 </RelativeLayout>
