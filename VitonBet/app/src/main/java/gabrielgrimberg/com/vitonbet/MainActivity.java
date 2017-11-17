@@ -1,7 +1,7 @@
 /*
 Application Name:   VitonBet
 Application Status: In Development for Stable Release.
-Version:            v0.1
+Version:            v0.2
 
 Name: MainActivity
 
