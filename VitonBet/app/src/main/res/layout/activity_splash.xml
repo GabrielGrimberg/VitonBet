@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#87b14d"
     tools:context="gabrielgrimberg.com.vitonbet.SplashActivity">
 
     <ImageView
         android:id="@+id/loadingVB"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:contentDescription="VBImage"
         android:scaleType="centerInside"
-        app:srcCompat="@drawable/ai_primarylogo" />
+        app:srcCompat="@drawable/ai_primarylogowhite" />
 
 </RelativeLayout>

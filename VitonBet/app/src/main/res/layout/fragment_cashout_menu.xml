@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="gabrielgrimberg.com.vitonbet.CashoutMenu">
+    tools:context="gabrielgrimberg.com.vitonbet.CashoutMenu"
+    android:background="#87b14d">
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
