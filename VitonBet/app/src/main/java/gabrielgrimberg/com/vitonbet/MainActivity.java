@@ -9,11 +9,10 @@ Description: - The heart of the app.
              - Main Activity to display events.
              - If users is not logged in activity loads up with the Login Activity.
 
-TODO 1. Navigator (Bottom Navigator)
 TODO 2. List Events (Where user can click and it will load another activity to place bet).
 TODO 3. UI Improvements.
 
-Last updated: 17th of November.
+Last updated: 18th of November.
  */
 
 package gabrielgrimberg.com.vitonbet;
@@ -24,7 +23,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -53,30 +51,42 @@ public class MainActivity extends AppCompatActivity
                     //Frag code.
                     setTitle("HomeMenu");
                     HomeMenu fragmentMenu = new HomeMenu();
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content, fragmentMenu, "FragmentName");
                     fragmentTransaction.commit();
 
                     return true;
-                case R.id.navigation_dashboard:
+
+                case R.id.navigation_events:
 
                     //Frag code.
                     setTitle("EventsMenu");
                     EventsMenu fragmenteSports = new EventsMenu();
-                    FragmentTransaction fragmentTransactionSports = getSupportFragmentManager().beginTransaction();
+                    FragmentTransaction fragmentTransactionSports = getFragmentManager().beginTransaction();
                     fragmentTransactionSports.replace(R.id.content, fragmenteSports, "FragmentName");
                     fragmentTransactionSports.commit();
 
                     return true;
 
-                case R.id.navigation_notifications:
+                case R.id.navigation_casino:
 
                     //Frag code.
                     setTitle("CasinoMenu");
                     CasinoMenu fragmentCasino = new CasinoMenu();
-                    FragmentTransaction fragmentTransactionCasino = getSupportFragmentManager().beginTransaction();
+                    FragmentTransaction fragmentTransactionCasino = getFragmentManager().beginTransaction();
                     fragmentTransactionCasino.replace(R.id.content, fragmentCasino, "FragmentName");
                     fragmentTransactionCasino.commit();
+
+                    return true;
+
+                case R.id.navigation_cashout:
+
+                    //Frag code.
+                    setTitle("CashoutMenu");
+                    CashoutMenu fragmentCashout = new CashoutMenu();
+                    FragmentTransaction fragmentTransactionCashout = getFragmentManager().beginTransaction();
+                    fragmentTransactionCashout.replace(R.id.content, fragmentCashout, "FragmentName");
+                    fragmentTransactionCashout.commit();
 
                     return true;
             }
@@ -92,6 +102,13 @@ public class MainActivity extends AppCompatActivity
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        //Show the HomeMenu at first when logging in.
+        setTitle("HomeMenu");
+        HomeMenu fragmentMenu = new HomeMenu();
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content, fragmentMenu, "FragmentName");
+        fragmentTransaction.commit();
 
         xLogoutBtn = (Button) findViewById(R.id.signoutField);
 

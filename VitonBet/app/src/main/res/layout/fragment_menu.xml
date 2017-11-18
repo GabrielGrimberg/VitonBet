@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="gabrielgrimberg.com.vitonbet.Menu">
+    tools:context="gabrielgrimberg.com.vitonbet.HomeMenu">
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
@@ -17,16 +17,6 @@
         android:text="Menu Page"
         android:id="@+id/textView2" />
 
-        <Button
-            android:id="@+id/signoutFieldMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="175dp"
-            android:text="Logout"
-            tools:layout_editor_absoluteX="148dp"
-            tools:layout_editor_absoluteY="144dp" />
     </RelativeLayout>
 
 
