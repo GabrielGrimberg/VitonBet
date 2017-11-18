@@ -12,26 +12,21 @@
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
-        <activity
-            android:name=".MainActivity" />
-
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".RegisterActivity"
             android:layout_gravity="center"
             android:label="@string/register_name" />
-
         <activity
             android:name=".LoginActivity"
             android:label="@string/login_name" />
-
+        <activity android:name=".CasinoActivity"></activity>
     </application>
 
 </manifest>
