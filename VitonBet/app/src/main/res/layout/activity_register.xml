@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#87b14d"
     tools:context="gabrielgrimberg.com.vitonbet.RegisterActivity">
+
     <EditText
         android:id="@+id/nameField"
         android:layout_width="300dp"
