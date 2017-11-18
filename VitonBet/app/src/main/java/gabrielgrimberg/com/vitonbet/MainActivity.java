@@ -18,15 +18,16 @@ Last updated: 17th of November.
 
 package gabrielgrimberg.com.vitonbet;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -37,7 +38,6 @@ public class MainActivity extends AppCompatActivity
 
     private Button xLogoutBtn;
 
-    private TextView mTextMessage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener()
@@ -49,13 +49,35 @@ public class MainActivity extends AppCompatActivity
             switch (item.getItemId())
             {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+
+                    //Frag code.
+                    setTitle("HomeMenu");
+                    HomeMenu fragmentMenu = new HomeMenu();
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content, fragmentMenu, "FragmentName");
+                    fragmentTransaction.commit();
+
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+
+                    //Frag code.
+                    setTitle("EventsMenu");
+                    EventsMenu fragmenteSports = new EventsMenu();
+                    FragmentTransaction fragmentTransactionSports = getSupportFragmentManager().beginTransaction();
+                    fragmentTransactionSports.replace(R.id.content, fragmenteSports, "FragmentName");
+                    fragmentTransactionSports.commit();
+
                     return true;
+
                 case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+
+                    //Frag code.
+                    setTitle("CasinoMenu");
+                    CasinoMenu fragmentCasino = new CasinoMenu();
+                    FragmentTransaction fragmentTransactionCasino = getSupportFragmentManager().beginTransaction();
+                    fragmentTransactionCasino.replace(R.id.content, fragmentCasino, "FragmentName");
+                    fragmentTransactionCasino.commit();
+
                     return true;
             }
             return false;
@@ -68,8 +90,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Bottom Activity part.
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 

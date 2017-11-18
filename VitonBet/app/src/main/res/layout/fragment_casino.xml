@@ -1,0 +1,31 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="gabrielgrimberg.com.vitonbet.CasinoMenu">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:textColor="#4a4a4a"
+            android:textSize="25sp"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Casino Entry"
+            android:id="@+id/textView2" />
+
+        <Button
+            android:id="@+id/enterCasino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="175dp"
+            android:text="Enter the Casino"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="144dp" />
+    </RelativeLayout>
+
+</FrameLayout>
