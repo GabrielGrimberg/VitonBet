@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".HomeActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
@@ -19,19 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".MainActivity"/>
-
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".RegisterActivity"
             android:layout_gravity="center"
             android:label="@string/register_name" />
-
         <activity
             android:name=".LoginActivity"
             android:label="@string/login_name" />
-
     </application>
 
 </manifest>
