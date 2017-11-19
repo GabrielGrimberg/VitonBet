@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity
     private FirebaseAuth xAuth;
     private FirebaseAuth.AuthStateListener xAuthListner;
 
-    private Button xLogoutBtn;
+    private Button xLogoutBtn; //Logout button.
+    private Button xCasinoDemo; //Temp Button to Enter Casino.
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -111,6 +112,7 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.commit();
 
         xLogoutBtn = (Button) findViewById(R.id.signoutField);
+        xCasinoDemo = (Button) findViewById(R.id.enterCasinoDemo);
 
         xAuth = FirebaseAuth.getInstance();
 
@@ -130,12 +132,25 @@ public class MainActivity extends AppCompatActivity
             }
         };
 
+        //When the logout button is clicked. For testing at the moment.
         xLogoutBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
                 logout();
+
+            }
+        });
+
+        //When the casino button is clicked. For testing at the moment.
+        xCasinoDemo.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent casinoIntent = new Intent(MainActivity.this, CasinoActivity.class);
+                startActivity(casinoIntent);
 
             }
         });

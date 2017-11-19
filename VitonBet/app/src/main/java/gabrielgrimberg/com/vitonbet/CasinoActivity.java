@@ -75,6 +75,8 @@ public class CasinoActivity extends AppCompatActivity
                     }
                 });
 
+                ivWheel.startAnimation(rotateAnimation);
+
 
             }
         });

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="41dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/rounded_shapebtn"
         android:text="Dare to Spin?"
         android:textColor="#FFFFFF" />
@@ -30,10 +30,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_above="@+id/spinWheel"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="28dp"
+        android:layout_centerVertical="true"
         app:srcCompat="@drawable/ic_wheel" />
 </RelativeLayout>
