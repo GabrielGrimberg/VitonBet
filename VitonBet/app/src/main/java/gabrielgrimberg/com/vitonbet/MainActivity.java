@@ -22,6 +22,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,7 +39,11 @@ public class MainActivity extends AppCompatActivity
     private Button xLogoutBtn; //Logout button.
     private Button xCasinoDemo; //Temp Button to Enter Casino.
 
+    //Top nav vars.
+    private DrawerLayout xDrawerLayout;
+    private ActionBarDrawerToggle xToggle;
 
+    //Bottom Navigator. (Frags).
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener()
     {
@@ -116,6 +122,15 @@ public class MainActivity extends AppCompatActivity
 
         xAuth = FirebaseAuth.getInstance();
 
+        /* Top nav. */
+        xDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        xToggle = new ActionBarDrawerToggle(this, xDrawerLayout, R.string.open, R.string.close);
+
+        xDrawerLayout.addDrawerListener(xToggle);
+        xToggle.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         //Checking if user has logged in.
         xAuthListner = new FirebaseAuth.AuthStateListener()
         {
@@ -154,6 +169,16 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        if(xToggle.onOptionsItemSelected(item))
+        {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
