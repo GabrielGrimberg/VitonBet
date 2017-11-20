@@ -1,7 +1,7 @@
 /*
 Application Name:   VitonBet
 Application Status: In Development for Stable Release.
-Version:            v0.2
+Version:            v0.3
 
 Name: MainActivity
 
@@ -12,7 +12,7 @@ Description: - The heart of the app.
 TODO 2. List Events (Where user can click and it will load another activity to place bet).
 TODO 3. UI Improvements.
 
-Last updated: 18th of November.
+Last updated: 20th of November.
  */
 
 package gabrielgrimberg.com.vitonbet;
@@ -20,6 +20,7 @@ package gabrielgrimberg.com.vitonbet;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -62,6 +63,26 @@ public class MainActivity extends AppCompatActivity
         xToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        NavigationView mNavigationView = (NavigationView) findViewById(R.id.top_nav_id);
+
+        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
+        {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem)
+            {
+                switch (menuItem.getItemId())
+                {
+                    case(R.id.nav_account):
+                        Intent accountActivity = new Intent(getApplicationContext(), AccountActivity.class);
+                        startActivity(accountActivity);
+
+                }
+                return true;
+            }
+        });
+
+
 
         /* Top Nav Overlay */
         //xToolbar = (Toolbar) findViewById(R.id.topnav_overlay);

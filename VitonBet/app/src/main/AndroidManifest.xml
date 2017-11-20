@@ -18,24 +18,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity">
-
-        </activity>
-
+        <activity android:name=".MainActivity"></activity>
         <activity
             android:name=".RegisterActivity"
             android:layout_gravity="center"
             android:label="@string/register_name" />
-
         <activity
             android:name=".LoginActivity"
             android:label="@string/login_name" />
-
-        <activity android:name=".CasinoActivity">
-
-        </activity>
-
+        <activity android:name=".CasinoActivity"></activity>
+        <activity android:name=".AccountActivity"></activity>
     </application>
 
 </manifest>
