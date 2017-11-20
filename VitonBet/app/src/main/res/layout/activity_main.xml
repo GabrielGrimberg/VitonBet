@@ -87,7 +87,8 @@
             android:layout_height="match_parent"
             app:menu="@menu/top_nav"
             android:layout_gravity="start"
-            android:background="#87b14d">
+            android:background="#87b14d"
+            app:headerLayout="@layout/top_nav_header">
         </android.support.design.widget.NavigationView>
 
     </android.support.v4.widget.DrawerLayout>
