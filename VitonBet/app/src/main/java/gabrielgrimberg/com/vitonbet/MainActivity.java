@@ -17,18 +17,16 @@ Last updated: 18th of November.
 
 package gabrielgrimberg.com.vitonbet;
 
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.support.v7.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -45,79 +43,11 @@ public class MainActivity extends AppCompatActivity
     private DrawerLayout xDrawerLayout;
     private ActionBarDrawerToggle xToggle;
 
-    //Bottom Navigator. (Frags).
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener()
-    {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item)
-        {
-            switch (item.getItemId())
-            {
-                case R.id.navigation_home:
-
-                    //Frag code.
-                    setTitle("HomeMenu");
-                    HomeMenu fragmentMenu = new HomeMenu();
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content, fragmentMenu, "FragmentName");
-                    fragmentTransaction.commit();
-
-                    return true;
-
-                case R.id.navigation_events:
-
-                    //Frag code.
-                    setTitle("EventsMenu");
-                    EventsMenu fragmenteSports = new EventsMenu();
-                    FragmentTransaction fragmentTransactionSports = getFragmentManager().beginTransaction();
-                    fragmentTransactionSports.replace(R.id.content, fragmenteSports, "FragmentName");
-                    fragmentTransactionSports.commit();
-
-                    return true;
-
-                case R.id.navigation_casino:
-
-                    //Frag code.
-                    setTitle("CasinoMenu");
-                    CasinoMenu fragmentCasino = new CasinoMenu();
-                    FragmentTransaction fragmentTransactionCasino = getFragmentManager().beginTransaction();
-                    fragmentTransactionCasino.replace(R.id.content, fragmentCasino, "FragmentName");
-                    fragmentTransactionCasino.commit();
-
-                    return true;
-
-                case R.id.navigation_cashout:
-
-                    //Frag code.
-                    setTitle("CashoutMenu");
-                    CashoutMenu fragmentCashout = new CashoutMenu();
-                    FragmentTransaction fragmentTransactionCashout = getFragmentManager().beginTransaction();
-                    fragmentTransactionCashout.replace(R.id.content, fragmentCashout, "FragmentName");
-                    fragmentTransactionCashout.commit();
-
-                    return true;
-            }
-            return false;
-        }
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-        //Show the HomeMenu at first when logging in.
-        setTitle("HomeMenu");
-        HomeMenu fragmentMenu = new HomeMenu();
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content, fragmentMenu, "FragmentName");
-        fragmentTransaction.commit();
 
         xLogoutBtn = (Button) findViewById(R.id.signoutField);
         xCasinoDemo = (Button) findViewById(R.id.enterCasinoDemo);
