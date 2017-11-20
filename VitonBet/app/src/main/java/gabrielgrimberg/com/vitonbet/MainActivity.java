@@ -26,7 +26,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -64,9 +63,10 @@ public class MainActivity extends AppCompatActivity
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        NavigationView mNavigationView = (NavigationView) findViewById(R.id.top_nav_id);
+        NavigationView xNavigationView = (NavigationView) findViewById(R.id.top_nav_id);
 
-        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
+        /* Activity Change when Item from Top Navigator is Clicked */
+        xNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem)
@@ -76,6 +76,25 @@ public class MainActivity extends AppCompatActivity
                     case(R.id.nav_account):
                         Intent accountActivity = new Intent(getApplicationContext(), AccountActivity.class);
                         startActivity(accountActivity);
+
+                    case(R.id.nav_home):
+                        Intent homeActivity = new Intent(getApplicationContext(), HomeActivity.class);
+                        startActivity(homeActivity);
+
+                    case(R.id.nav_events):
+                        Intent eventsActivity = new Intent(getApplicationContext(), EventsActivity.class);
+                        startActivity(eventsActivity);
+
+                    case(R.id.nav_casino):
+                        Intent casinoActivity = new Intent(getApplicationContext(), CasinoActivity.class);
+                        startActivity(casinoActivity);
+
+                    case(R.id.nav_cashout):
+                        Intent cashoutActivity = new Intent(getApplicationContext(), CashoutActivity.class);
+                        startActivity(cashoutActivity);
+
+                    case(R.id.nav_logout):
+                        logout();
 
                 }
                 return true;
@@ -104,28 +123,6 @@ public class MainActivity extends AppCompatActivity
             }
         };
 
-        //When the logout button is clicked. For testing at the moment.
-        xLogoutBtn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                logout();
-
-            }
-        });
-
-        //When the casino button is clicked. For testing at the moment.
-        xCasinoDemo.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent casinoIntent = new Intent(MainActivity.this, CasinoActivity.class);
-                startActivity(casinoIntent);
-
-            }
-        });
     }
 
     @Override
