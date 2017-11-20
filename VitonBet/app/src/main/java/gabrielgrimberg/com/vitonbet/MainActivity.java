@@ -28,6 +28,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.support.v7.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity
 
     private Button xLogoutBtn; //Logout button.
     private Button xCasinoDemo; //Temp Button to Enter Casino.
+    private Toolbar xToolbar;
 
     //Top nav vars.
     private DrawerLayout xDrawerLayout;
@@ -130,6 +132,10 @@ public class MainActivity extends AppCompatActivity
         xToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        /* Top Nav Overlay */
+        //xToolbar = (Toolbar) findViewById(R.id.topnav_overlay);
+        //setSupportActionBar(xToolbar);
 
         //Checking if user has logged in.
         xAuthListner = new FirebaseAuth.AuthStateListener()

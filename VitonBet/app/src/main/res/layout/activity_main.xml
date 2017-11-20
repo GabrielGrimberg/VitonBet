@@ -76,6 +76,13 @@
     </android.support.constraint.ConstraintLayout>
     <!-- End Bottom Navigator -->
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <include layout="@layout/top_nav_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
     <!-- For Top Navigator -->
     <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/drawerLayout"
@@ -87,8 +94,9 @@
             android:layout_height="match_parent"
             app:menu="@menu/top_nav"
             android:layout_gravity="start"
-            android:background="#87b14d"
+            android:background="#FFFFFF"
             app:headerLayout="@layout/top_nav_header">
+
         </android.support.design.widget.NavigationView>
 
     </android.support.v4.widget.DrawerLayout>
