@@ -59,7 +59,10 @@
         android:layout_weight="1">
     </FrameLayout>
 
-
+    <!-- For the Bottom Navigator - Needs to use Constraint Layout to Display -->
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <android.support.design.widget.BottomNavigationView
         android:background="#87b14d"
         android:id="@+id/navigation"
@@ -70,5 +73,23 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
       app:menu="@menu/navigation" />
+    </android.support.constraint.ConstraintLayout>
+    <!-- End Bottom Navigator -->
+
+    <!-- For Top Navigator -->
+    <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.NavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:menu="@menu/top_nav"
+            android:layout_gravity="start"
+            android:background="#87b14d">
+        </android.support.design.widget.NavigationView>
+
+    </android.support.v4.widget.DrawerLayout>
+    <!-- End Top Navigator -->
 
 </RelativeLayout>

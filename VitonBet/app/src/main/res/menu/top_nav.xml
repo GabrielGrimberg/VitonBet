@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/nav_account"
+        android:title="My Account"/>
+
+    <item android:id="@+id/nav_settings"
+        android:title="Settings"/>
+
+    <item android:id="@+id/nav_rating"
+        android:title="Rate VitonBet"/>
+
+    <item android:id="@+id/nav_information"
+        android:title="Information"/>
+
+    <item android:id="@+id/nav_logout"
+        android:title="Logout"/>
+
+</menu>
