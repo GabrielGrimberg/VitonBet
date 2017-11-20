@@ -26,7 +26,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -35,8 +34,6 @@ public class MainActivity extends AppCompatActivity
     private FirebaseAuth xAuth;
     private FirebaseAuth.AuthStateListener xAuthListner;
 
-    private Button xLogoutBtn; //Logout button.
-    private Button xCasinoDemo; //Temp Button to Enter Casino.
     private Toolbar xToolbar;
 
     //Top nav vars.
@@ -48,9 +45,6 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        xLogoutBtn = (Button) findViewById(R.id.signoutField);
-        xCasinoDemo = (Button) findViewById(R.id.enterCasinoDemo);
 
         xAuth = FirebaseAuth.getInstance();
 
@@ -73,35 +67,50 @@ public class MainActivity extends AppCompatActivity
             {
                 switch (menuItem.getItemId())
                 {
-                    case(R.id.nav_account):
+                    case R.id.nav_account:
                         Intent accountActivity = new Intent(getApplicationContext(), AccountActivity.class);
+                        accountActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(accountActivity);
 
-                    case(R.id.nav_home):
+                        return true;
+
+                    case R.id.nav_home:
                         Intent homeActivity = new Intent(getApplicationContext(), HomeActivity.class);
+                        homeActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(homeActivity);
 
-                    case(R.id.nav_events):
+                        return true;
+
+                    case R.id.nav_events:
                         Intent eventsActivity = new Intent(getApplicationContext(), EventsActivity.class);
+                        eventsActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(eventsActivity);
 
-                    case(R.id.nav_casino):
+                        return true;
+
+                    case R.id.nav_casino:
                         Intent casinoActivity = new Intent(getApplicationContext(), CasinoActivity.class);
+                        casinoActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(casinoActivity);
 
-                    case(R.id.nav_cashout):
+                        return true;
+
+                    case R.id.nav_cashout:
                         Intent cashoutActivity = new Intent(getApplicationContext(), CashoutActivity.class);
+                        cashoutActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(cashoutActivity);
 
-                    case(R.id.nav_logout):
+                        return true;
+
+                    case R.id.nav_logout:
                         logout();
+
+                        return true;
 
                 }
                 return true;
             }
         });
-
-
 
         /* Top Nav Overlay */
         //xToolbar = (Toolbar) findViewById(R.id.topnav_overlay);
