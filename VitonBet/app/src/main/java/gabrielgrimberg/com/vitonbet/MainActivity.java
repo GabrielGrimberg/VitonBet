@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity
                         return true;
 
                     case R.id.nav_home:
-                        Intent homeActivity = new Intent(getApplicationContext(), HomeActivity.class);
+                        Intent homeActivity = new Intent(getApplicationContext(), MainActivity.class);
                         homeActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(homeActivity);
 
@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth)
             {
                 if(firebaseAuth.getCurrentUser() == null)
+
                 {
                     Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
                     loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
