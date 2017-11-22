@@ -28,6 +28,15 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Balance: 1000"
+        android:textSize="18sp"/>
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="350dp"
@@ -35,4 +44,13 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         app:srcCompat="@drawable/ic_wheel" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="330dp"
+        app:srcCompat="@android:drawable/arrow_down_float" />
 </RelativeLayout>

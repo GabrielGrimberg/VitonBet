@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/VitonBet.iml" filepath="$PROJECT_DIR$/VitonBet.iml" />
-      <module fileurl="file://C:\Users\Ecoste\Desktop\VitonBet\VitonBet\VitonBet.iml" filepath="C:\Users\Ecoste\Desktop\VitonBet\VitonBet\VitonBet.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Ecoste\Desktop\VitonBet\VitonBet\app\app.iml" filepath="C:\Users\Ecoste\Desktop\VitonBet\VitonBet\app\app.iml" />
     </modules>
   </component>
 </project>

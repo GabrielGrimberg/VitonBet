@@ -114,6 +114,7 @@ public class RegisterActivity extends AppCompatActivity
                        current_user_db.child("email").setValue(email);
                        current_user_db.child("dob").setValue(dob);
                        current_user_db.child("phone").setValue(phone);
+                       current_user_db.child("balance").setValue(1000);
 
 
                        xProgress.dismiss();
