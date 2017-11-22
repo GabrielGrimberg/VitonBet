@@ -95,13 +95,6 @@ public class MainActivity extends AppCompatActivity
 
                         return true;
 
-                    case R.id.nav_cashout:
-                        Intent cashoutActivity = new Intent(getApplicationContext(), CashoutActivity.class);
-                        cashoutActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(cashoutActivity);
-
-                        return true;
-
                     case R.id.nav_logout:
                         logout();
 

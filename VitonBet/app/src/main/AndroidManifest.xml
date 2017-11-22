@@ -32,7 +32,6 @@
             android:label="@string/title_casino"/>
         <activity android:name=".AccountActivity" />
         <activity android:name=".EventsActivity" />
-        <activity android:name=".CashoutActivity"></activity>
     </application>
 
 </manifest>
