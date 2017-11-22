@@ -2,7 +2,6 @@ package gabrielgrimberg.com.vitonbet;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
@@ -34,6 +33,9 @@ public class CasinoActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_casino);
+
+
+        Helper.SetBalance(this);
 
         btn = (Button) findViewById(R.id.spinWheel);
         tvOutcome = (TextView) findViewById(R.id.tvScore);
