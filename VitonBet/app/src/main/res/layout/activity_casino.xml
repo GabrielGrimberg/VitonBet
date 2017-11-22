@@ -66,10 +66,10 @@
         android:layout_alignBottom="@+id/black"
         android:layout_alignParentStart="true"
         android:layout_marginStart="28dp"
-        android:background="@drawable/rounded_shapebtn"
+        android:background="@drawable/rounded_shapebtnwhite"
         android:fontFamily="monospace"
         android:text="green"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/tintgreen"
         android:textOff="Green"
         android:textOn="Green" />
 
@@ -80,10 +80,10 @@
         android:layout_above="@+id/imageView2"
         android:layout_alignStart="@+id/spinWheel"
         android:layout_marginBottom="14dp"
-        android:background="@drawable/rounded_shapebtn"
+        android:background="@drawable/rounded_shapebtnwhite"
         android:fontFamily="monospace"
         android:text="ToggleButton"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textOff="Black"
         android:textOn="Black" />
 
@@ -95,10 +95,10 @@
         android:layout_alignBottom="@+id/black"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="21dp"
-        android:background="@drawable/rounded_shapebtn"
+        android:background="@drawable/rounded_shapebtnwhite"
         android:fontFamily="monospace"
         android:text="ToggleButton"
-        android:textColor="#FFFFFF"
+        android:textColor="#FF0000"
         android:textOff="Red"
         android:textOn="Red" />
 

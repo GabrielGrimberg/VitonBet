@@ -1,3 +1,14 @@
+/*
+Name: CasinoActivity
+
+Description: - Casino Mode.
+             - Spinning the wheel to win or lose.
+             - If lands on green: 4x amount
+             - If you pick red or green and it lands on that then x2 amount.
+             - Else lose.
+
+Last updated: 22nd of November.
+ */
 package gabrielgrimberg.com.vitonbet;
 
 import android.os.Bundle;
@@ -56,7 +67,8 @@ public class CasinoActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                if (spinning) {
+                if (spinning)
+                {
                     return;
                 }
                 TextView tv = findViewById(R.id.betAmount);
@@ -91,32 +103,44 @@ public class CasinoActivity extends AppCompatActivity
                         spinning = false;
                         TextView t = (TextView) findViewById(R.id.tvScore);
 
-                        if (numberMapping[(degree-360) / 10] % 2 == 0) {
-                            if (mine.color == COLOR.RED) {
+                        if (numberMapping[(degree-360) / 10] % 2 == 0)
+                        {
+                            if (mine.color == COLOR.RED)
+                            {
                                 //pay 2x
                                 t.setText("WON " + Integer.toString(mine.betAmount*2));
                                 Helper.AddBalance(mine, mine.betAmount*2);
-                            } else {
+                            }
+                            else
+                            {
                                 t.setText("LOST " + Integer.toString(mine.betAmount));
                                 Helper.AddBalance(mine, -mine.betAmount);
                             }
                         }
 
-                        if (numberMapping[(degree-360) / 10] == 0) {
-                            if (mine.color == COLOR.GREEN) {
+                        if (numberMapping[(degree-360) / 10] == 0)
+                        {
+                            if (mine.color == COLOR.GREEN)
+                            {
                                 t.setText("WON " + Integer.toString(mine.betAmount*8));
                                 Helper.AddBalance(mine, mine.betAmount*8);
-                            } else {
+                            }
+                            else
+                            {
                                 t.setText("LOST " + Integer.toString(mine.betAmount));
                                 Helper.AddBalance(mine, -mine.betAmount);
                             }
                         }
 
-                        if (numberMapping[(degree-360) / 10] % 2 == 1) {
-                            if (mine.color == COLOR.BLACK) {
+                        if (numberMapping[(degree-360) / 10] % 2 == 1)
+                        {
+                            if (mine.color == COLOR.BLACK)
+                            {
                                 t.setText("WON " + Integer.toString(mine.betAmount*2));
                                 Helper.AddBalance(mine, mine.betAmount*2);
-                            } else {
+                            }
+                            else
+                            {
                                 t.setText("LOST " + Integer.toString(mine.betAmount));
                                 Helper.AddBalance(mine, -mine.betAmount);
                             }
@@ -141,10 +165,13 @@ public class CasinoActivity extends AppCompatActivity
         final ToggleButton green = findViewById(R.id.green);
         final ToggleButton black = findViewById(R.id.black);
         final ToggleButton red = findViewById(R.id.red);
-        green.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+        green.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
 
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
                 if(isChecked)
                 {
                     black.setChecked(false);
@@ -160,10 +187,12 @@ public class CasinoActivity extends AppCompatActivity
 
             }
         });
-        black.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        black.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
 
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
                 if(isChecked)
                 {
                     green.setChecked(false);
@@ -179,10 +208,12 @@ public class CasinoActivity extends AppCompatActivity
 
             }
         });
-        red.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        red.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
 
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
                 if(isChecked)
                 {
                     green.setChecked(false);
