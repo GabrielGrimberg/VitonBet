@@ -23,11 +23,33 @@ public class Helper {
                     .child("Users").child(user.getUid().toString()).child("balance");
 
 
-            db.addValueEventListener(new ValueEventListener() {
+            db.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     TextView bal = (TextView)a.findViewById(R.id.balance);
                     bal.setText("Balance: " + Integer.toString((int)(long)dataSnapshot.getValue()));
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    // ...
+                }
+            });
+        }
+    }
+
+    public static void AddBalance(final AppCompatActivity a, final int amount) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            final DatabaseReference db = FirebaseDatabase.getInstance().getReference()
+                    .child("Users").child(user.getUid().toString()).child("balance");
+
+            db.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    TextView bal = (TextView)a.findViewById(R.id.balance);
+                    bal.setText("Balance: " + Integer.toString((int)(long)dataSnapshot.getValue() + amount));
+                    db.setValue((int)(long)dataSnapshot.getValue() + amount);
                 }
 
                 @Override
