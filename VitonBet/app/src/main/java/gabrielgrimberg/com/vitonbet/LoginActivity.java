@@ -113,8 +113,6 @@ public class LoginActivity extends AppCompatActivity
                     {
                         xProgress.dismiss();
 
-                        //TODO
-                        //Better error checking.
                         Toast.makeText(LoginActivity.this,
                                 "Either Password or Email is wrong.",
                                 Toast.LENGTH_LONG).show();
