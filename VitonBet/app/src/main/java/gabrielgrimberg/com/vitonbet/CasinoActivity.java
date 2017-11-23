@@ -75,7 +75,6 @@ public class CasinoActivity extends AppCompatActivity
                 String amount = tv.getText().toString();
                 mine.betAmount = Integer.parseInt(amount);
 
-
                 oldDegree = degree % 360; //Wheel is 360 degrees.
 
                 degree = (int)Math.round((random.nextInt(360) + 360)/10.0) * 10;
@@ -102,7 +101,6 @@ public class CasinoActivity extends AppCompatActivity
                     {
                         spinning = false;
                         TextView t = (TextView) findViewById(R.id.tvScore);
-
                         if (numberMapping[(degree-360) / 10] % 2 == 0)
                         {
                             if (mine.color == COLOR.RED)

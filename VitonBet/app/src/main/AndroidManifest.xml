@@ -26,12 +26,24 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/login_name" />
-
         <activity
             android:name=".CasinoActivity"
-            android:label="@string/title_casino"/>
-        <activity android:name=".AccountActivity" />
-        <activity android:name=".EventsActivity" />
+            android:label="@string/title_casino" />
+
+        <activity
+            android:name=".AccountActivity" />
+
+        <activity
+            android:name=".EventsActivity" />
+
+        <activity
+            android:name=".ConfirmationActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        </activity>
+
+
+
+
     </application>
 
 </manifest>

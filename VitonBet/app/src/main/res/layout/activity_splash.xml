@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:contentDescription="VBImage"
-        android:scaleType="centerInside"
-        app:srcCompat="@mipmap/vitonbet_start" />
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ai_primarylogowhite" />
 
 </RelativeLayout>
