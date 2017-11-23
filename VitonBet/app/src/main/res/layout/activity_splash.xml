@@ -15,6 +15,6 @@
         android:layout_centerVertical="true"
         android:contentDescription="VBImage"
         android:scaleType="centerInside"
-        app:srcCompat="@drawable/ai_primarylogowhite" />
+        app:srcCompat="@mipmap/vitonbet_start" />
 
 </RelativeLayout>
