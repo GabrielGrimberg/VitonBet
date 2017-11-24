@@ -106,7 +106,7 @@ public class AdActivity extends AppCompatActivity
     private void goToNextLevel()
     {
         // Show the next level and reload the ad to prepare for the level after.
-        mLevelTextView.setText("Level " + (++mLevel));
+        mLevelTextView.setText("Ads watched for this session: " + (mLevel++));
         mInterstitialAd = newInterstitialAd();
         loadInterstitial();
     }

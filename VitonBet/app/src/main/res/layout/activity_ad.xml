@@ -1,34 +1,71 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#87b14d"
     tools:context="gabrielgrimberg.com.vitonbet.AdActivity">
+
+    <ImageView
+        android:id="@+id/ivVitonBet"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ai_primarylogowhite" />
 
     <!-- view for AdMob Interstitial Ad -->
     <TextView
         android:id="@+id/app_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:text="@string/interstitial_ad_sample"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ivVitonBet"
+        android:fontFamily="monospace"
+        android:text="Did you run out of money, need a few coins to get you back into winnings ways?"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/app_title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/app_title"
+        android:layout_marginTop="24dp"
+        android:fontFamily="monospace"
+        android:text="Click on the button below to watch some ads for some cash."
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/app_title"
+        android:layout_above="@+id/next_level_button"
         android:layout_centerHorizontal="true"
-        android:text="@string/start_level"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_marginBottom="38dp"
+        android:text="No Ads Watched Yet!"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/next_level_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/next_level" />
+        android:layout_marginBottom="76dp"
+        android:background="@drawable/rounded_shapebtn"
+        android:text="Watch Another Ad"
+        android:textColor="#FFFFFF" />
 </RelativeLayout>
