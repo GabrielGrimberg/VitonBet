@@ -51,10 +51,13 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:buttonTint="@color/black"
+        android:checked="false"
         android:fontFamily="monospace"
         android:text="I am 18 years and over."
         android:textAlignment="center"
         android:textColor="#FFFFFF"
+        android:textColorLink="@android:color/black"
         android:textStyle="bold" />
 
     <TextView
