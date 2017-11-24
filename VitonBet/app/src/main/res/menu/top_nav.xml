@@ -17,13 +17,17 @@
         android:icon="@drawable/ic_casino"
         android:title="Enter the Casino"/>
 
+    <item android:id="@+id/nav_sendcash"
+        android:icon="@drawable/ic_sendcash"
+        android:title="Transfer Cash"/>
+
+    <item android:id="@+id/nav_ad"
+        android:icon="@drawable/ic_rating_top"
+        android:title="Watch Advertisements"/>
+
     <item android:id="@+id/nav_settings"
         android:icon="@drawable/ic_settings_top"
         android:title="Settings"/>
-
-    <item android:id="@+id/nav_rating"
-        android:icon="@drawable/ic_rating_top"
-        android:title="Rate VitonBet"/>
 
     <item android:id="@+id/nav_logout"
         android:icon="@drawable/ic_logout_top"

@@ -93,6 +93,11 @@ public class MainActivity extends AppCompatActivity
                         casinoActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(casinoActivity);
 
+                    case R.id.nav_ad:
+                        Intent adActivity = new Intent(getApplicationContext(), AdActivity.class);
+                        adActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(adActivity);
+
                     case R.id.nav_settings:
                         Intent settingsActivity = new Intent(getApplicationContext(), SettingsActivity.class);
                         settingsActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
