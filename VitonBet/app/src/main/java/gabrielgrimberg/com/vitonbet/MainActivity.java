@@ -104,7 +104,6 @@ public class MainActivity extends AppCompatActivity
                         logout();
 
                         return true;
-
                 }
                 return true;
             }

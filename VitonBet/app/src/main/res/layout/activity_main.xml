@@ -5,27 +5,16 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="#87b14d"
     tools:context="gabrielgrimberg.com.vitonbet.MainActivity">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="Main Activity Page (Should be Treated as Home Page)."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- For Top Navigator -->
     <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
         <android.support.design.widget.NavigationView
             android:id="@+id/top_nav_id"
@@ -40,5 +29,138 @@
 
     </android.support.v4.widget.DrawerLayout>
     <!-- End Top Navigator -->
+
+    <ImageView
+        android:id="@+id/ivVitonBet"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="435dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ai_primarylogowhite" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:fontFamily="monospace"
+        android:text="Promotion:"
+        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:text="Rate our VitonBet 5 stars on the Play Store and get €10 added to your balance."
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvCasino"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView6"
+        android:layout_marginTop="35dp"
+        android:layout_toEndOf="@+id/ivcasino"
+        android:fontFamily="monospace"
+        android:text="Play Casino Mode:"
+        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvCasinoInfo"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvCasino"
+        android:layout_toEndOf="@+id/ivcasino"
+        android:text="Play the all new Roulette that has been optimised for the VitonBet application now!"
+        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tveSports"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvCasino"
+        android:layout_below="@+id/tvCasinoInfo"
+        android:layout_marginTop="18dp"
+        android:fontFamily="monospace"
+        android:text="Bet on eSports:"
+        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tveSportsInfo"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvCasinoInfo"
+        android:layout_below="@+id/tveSports"
+        android:text="Many of the most popular games, teams and tournaments now available to bet on."
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvad"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tveSports"
+        android:layout_below="@+id/tveSportsInfo"
+        android:layout_marginTop="12dp"
+        android:fontFamily="monospace"
+        android:text="Ran out of cash?"
+        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tveadInfo"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tveSportsInfo"
+        android:layout_below="@+id/tvad"
+        android:text="Watch an advertisement to gain some cash so you can spin that wheel or bet on your favourite game."
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvwarning"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_marginBottom="11dp"
+        android:text="Please bet responsibly and when the fun stops, make sure to stop."
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="italic" />
+
+    <ImageView
+        android:id="@+id/ivcasino"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignBottom="@+id/tvCasinoInfo"
+        android:layout_alignStart="@+id/textView6"
+        app:srcCompat="@drawable/casinoimage" />
+
+    <ImageView
+        android:id="@+id/ivsports"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignBottom="@+id/tveSportsInfo"
+        android:layout_toStartOf="@+id/tveSports"
+        app:srcCompat="@drawable/esportsimage" />
 
 </RelativeLayout>
