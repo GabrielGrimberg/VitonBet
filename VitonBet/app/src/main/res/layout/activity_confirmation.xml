@@ -14,12 +14,12 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:background="#6A923C"
         android:fontFamily="monospace"
         android:textAlignment="viewStart"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:background="@drawable/rounded_corner"/>
 
     <ImageView
         android:id="@+id/ivVitonBet"
