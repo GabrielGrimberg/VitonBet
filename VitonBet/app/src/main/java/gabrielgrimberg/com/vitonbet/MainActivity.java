@@ -98,11 +98,6 @@ public class MainActivity extends AppCompatActivity
                         adActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(adActivity);
 
-                    case R.id.nav_settings:
-                        Intent settingsActivity = new Intent(getApplicationContext(), SettingsActivity.class);
-                        settingsActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(settingsActivity);
-
                         return true;
 
                     case R.id.nav_logout:
