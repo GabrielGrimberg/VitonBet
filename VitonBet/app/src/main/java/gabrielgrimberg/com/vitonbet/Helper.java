@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Helper
 {
+    //Method that adds a balance field to the user.
     public static void SetBalance(final AppCompatActivity a)
     {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -36,7 +37,7 @@ public class Helper
                 public void onDataChange(DataSnapshot dataSnapshot)
                 {
                     TextView bal = (TextView)a.findViewById(R.id.balance);
-                    bal.setText("Balance: " + Integer.toString((int)(long)dataSnapshot.getValue()));
+                    bal.setText("Balance: €" + Integer.toString((int)(long)dataSnapshot.getValue()));
                 }
 
                 @Override
@@ -48,6 +49,7 @@ public class Helper
         }
     }
 
+    //Method to change the balance for the user.
     public static void AddBalance(final AppCompatActivity a, final int amount)
     {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -74,4 +76,5 @@ public class Helper
             });
         }
     }
+
 }

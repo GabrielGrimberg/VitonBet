@@ -106,12 +106,12 @@ public class CasinoActivity extends AppCompatActivity
                             if (mine.color == COLOR.RED)
                             {
                                 //pay 2x
-                                t.setText("WON " + Integer.toString(mine.betAmount*2));
+                                t.setText("WON €" + Integer.toString(mine.betAmount*2));
                                 Helper.AddBalance(mine, mine.betAmount*2);
                             }
                             else
                             {
-                                t.setText("LOST " + Integer.toString(mine.betAmount));
+                                t.setText("LOST €" + Integer.toString(mine.betAmount));
                                 Helper.AddBalance(mine, -mine.betAmount);
                             }
                         }
@@ -120,12 +120,12 @@ public class CasinoActivity extends AppCompatActivity
                         {
                             if (mine.color == COLOR.GREEN)
                             {
-                                t.setText("WON " + Integer.toString(mine.betAmount*8));
+                                t.setText("WON €" + Integer.toString(mine.betAmount*8));
                                 Helper.AddBalance(mine, mine.betAmount*8);
                             }
                             else
                             {
-                                t.setText("LOST " + Integer.toString(mine.betAmount));
+                                t.setText("LOST €" + Integer.toString(mine.betAmount));
                                 Helper.AddBalance(mine, -mine.betAmount);
                             }
                         }
@@ -134,12 +134,12 @@ public class CasinoActivity extends AppCompatActivity
                         {
                             if (mine.color == COLOR.BLACK)
                             {
-                                t.setText("WON " + Integer.toString(mine.betAmount*2));
+                                t.setText("WON €" + Integer.toString(mine.betAmount*2));
                                 Helper.AddBalance(mine, mine.betAmount*2);
                             }
                             else
                             {
-                                t.setText("LOST " + Integer.toString(mine.betAmount));
+                                t.setText("LOST €" + Integer.toString(mine.betAmount));
                                 Helper.AddBalance(mine, -mine.betAmount);
                             }
                         }

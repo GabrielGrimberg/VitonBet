@@ -37,7 +37,7 @@
         android:layout_centerHorizontal="true"
         android:fontFamily="monospace"
         android:text="Balance"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
 
