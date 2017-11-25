@@ -121,4 +121,26 @@
         android:inputType="textPersonName"
         android:textAlignment="center" />
 
+    <!-- Start of Top Navigator -->
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/top_nav_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="#FFFFFF"
+            app:headerLayout="@layout/top_nav_header"
+            app:menu="@menu/top_nav">
+
+        </android.support.design.widget.NavigationView>
+
+    </android.support.v4.widget.DrawerLayout>
+    <!-- End Top Navigator -->
+
 </RelativeLayout>
