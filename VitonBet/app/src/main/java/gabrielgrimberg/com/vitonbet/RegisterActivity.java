@@ -4,11 +4,9 @@ Name: RegisterActivity
 Description: - Activity for a user to Register.
              - Register with: Username, Email, Password, Date of Birth and Phone Number.
              - UI Enhanced.
-
-TODO 1 - Extra layer of error checking.
-
-Last updated: 17th of November.
- */
+             - Error Checking - Password must match and Email must be valid.
+             - DOB Field improved.
+*/
 
 package gabrielgrimberg.com.vitonbet;
 
@@ -38,6 +36,7 @@ import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity
 {
+    //Register fields.
     private EditText xNameField;
     private EditText xEmailField;
     private EditText xPasswordField;
@@ -45,14 +44,17 @@ public class RegisterActivity extends AppCompatActivity
     private EditText xDOBField;
     private EditText xPhoneField;
 
+    //Button to register.
     private Button xRegisterBtn;
 
+    //Firebase connection vars.
     private FirebaseAuth xAuth;
     private DatabaseReference xDatabase;
 
+    //Progress bar.
     private ProgressDialog xProgress;
 
-    //DOB Field.
+    //The calendar box to pick your DOB.
     private DatePickerDialog datePickerDialog;
 
 
@@ -63,8 +65,9 @@ public class RegisterActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        xAuth = FirebaseAuth.getInstance();
+        xAuth = FirebaseAuth.getInstance(); //Get instance of current user.
 
+        //Adding to db when user registers.
         xDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
 
         xProgress = new ProgressDialog(this);
@@ -78,6 +81,7 @@ public class RegisterActivity extends AppCompatActivity
 
         xRegisterBtn = (Button) findViewById(R.id.registerBtn);
 
+        //When the button is clicked go to register method.
         xRegisterBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -89,6 +93,7 @@ public class RegisterActivity extends AppCompatActivity
 
         xDOBField = (EditText)findViewById(R.id.dobField);
 
+        //When the DOB field is click show the calendar.
         xDOBField.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -98,23 +103,23 @@ public class RegisterActivity extends AppCompatActivity
             }
         });
 
-        //Create DatePickerDialog to show a calendar to user to select birthdate
-        Calendar calendar=Calendar.getInstance();
+        //Set up Calendar view for the datePickerDialog.
+        Calendar calendar = Calendar.getInstance();
 
-        //Create datePickerDialog with initial date which is current and decide what happens when a date is selected.
+        //Make the date view pop up.
         datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener()
         {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
             {
-                //When a date is selected, it comes here.
-                //Change birthdayEdittext's text and dismiss dialog.
+                //Select the date and dismiss the date picker dialog.
                 xDOBField.setText(dayOfMonth+"/"+monthOfYear+"/"+year);
                 datePickerDialog.dismiss();
             }
         },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));
     }
 
+    //Method to validate registration and check if input is correct and suitable.
     private void startRegister()
     {
         final String name = xNameField.getText().toString().trim();
@@ -139,7 +144,9 @@ public class RegisterActivity extends AppCompatActivity
             xProgress.setMessage("Signing Up...");
             xProgress.show();
 
-            xAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            //If input is good and nothing wrong then add it to th database and show up the home page.
+            xAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>()
+            {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task)
                 {
@@ -165,6 +172,7 @@ public class RegisterActivity extends AppCompatActivity
                 }
             });
         }
+        //If an input was wrong display an error message.
         else
         {
             Toast.makeText(RegisterActivity.this,
