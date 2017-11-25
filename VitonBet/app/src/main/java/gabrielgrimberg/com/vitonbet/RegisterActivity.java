@@ -12,6 +12,7 @@ Last updated: 17th of November.
 
 package gabrielgrimberg.com.vitonbet;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +21,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,6 +31,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity
 {
@@ -44,6 +51,9 @@ public class RegisterActivity extends AppCompatActivity
     private DatabaseReference xDatabase;
 
     private ProgressDialog xProgress;
+
+    //DOB Field.
+    private DatePickerDialog datePickerDialog;
 
 
 
@@ -76,6 +86,33 @@ public class RegisterActivity extends AppCompatActivity
                 startRegister();
             }
         });
+
+        xDOBField = (EditText)findViewById(R.id.dobField);
+
+        xDOBField.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                datePickerDialog.show();
+            }
+        });
+
+        //Create DatePickerDialog to show a calendar to user to select birthdate
+        Calendar calendar=Calendar.getInstance();
+
+        //Create datePickerDialog with initial date which is current and decide what happens when a date is selected.
+        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener()
+        {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
+            {
+                //When a date is selected, it comes here.
+                //Change birthdayEdittext's text and dismiss dialog.
+                xDOBField.setText(dayOfMonth+"/"+monthOfYear+"/"+year);
+                datePickerDialog.dismiss();
+            }
+        },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));
     }
 
     private void startRegister()
@@ -94,7 +131,9 @@ public class RegisterActivity extends AppCompatActivity
                 !TextUtils.isEmpty(password) &&
                 !TextUtils.isEmpty(repassword) &&
                 !TextUtils.isEmpty(dob) &&
-                !TextUtils.isEmpty(phone))
+                !TextUtils.isEmpty(phone) &&
+                password.equals(repassword) &&
+                isEmailValid(email))
 
         {
             xProgress.setMessage("Signing Up...");
@@ -126,5 +165,24 @@ public class RegisterActivity extends AppCompatActivity
                 }
             });
         }
+        else
+        {
+            Toast.makeText(RegisterActivity.this,
+                    "Please make sure that all fields are filled out and that the password matches when you re-entered it. " +
+                            "The email must also be valid and number must have 10 digits.",
+                    Toast.LENGTH_LONG).show();
+        }
     }
+
+    //Reference from : https://stackoverflow.com/questions/6119722/how-to-check-edittexts-text-is-email-address-or-not
+    //Method to check if email is legit
+    public static boolean isEmailValid(String email)
+    {
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+
+        return matcher.matches();
+    }
+    //End of Reference
 }

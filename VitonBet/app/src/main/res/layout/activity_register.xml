@@ -107,8 +107,8 @@
         android:layout_alignStart="@+id/repasswordField"
         android:layout_below="@+id/tvEnterDOB"
         android:ems="10"
-        android:hint="DD/MM/YYYY"
-        android:inputType="date"
+        android:focusable="false"
+        android:hint="@string/birthday"
         android:textAlignment="viewStart" />
 
     <EditText
