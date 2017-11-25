@@ -22,6 +22,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import java.util.Random;
@@ -74,6 +75,12 @@ public class CasinoActivity extends AppCompatActivity
                 TextView tv = findViewById(R.id.betAmount);
                 String amount = tv.getText().toString();
                 mine.betAmount = Integer.parseInt(amount);
+                if (mine.betAmount > Integer.parseInt(((TextView)findViewById(R.id.balance)).getText().toString().replace("€", "").replace("Balance: ", ""))) {
+                    Toast.makeText(CasinoActivity.this, "You don't have enough balance.",
+                            Toast.LENGTH_LONG).show();
+
+                    return;
+                }
 
                 oldDegree = degree % 360; //Wheel is 360 degrees.
 
