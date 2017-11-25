@@ -5,19 +5,22 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#87b14d"
     tools:context="gabrielgrimberg.com.vitonbet.EventsActivity">
 
-    <fragment android:name="gabrielgrimberg.com.vitonbet.EnterEvent"
+    <fragment
         android:id="@+id/enterEvent"
-        android:layout_weight="2"
+        android:name="gabrielgrimberg.com.vitonbet.EnterEvent"
         android:layout_width="0dp"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_weight="2" />
 
-    <fragment android:name="gabrielgrimberg.com.vitonbet.ViewEvent"
+    <fragment
         android:id="@+id/viewEvent"
-        android:layout_weight="2"
+        android:name="gabrielgrimberg.com.vitonbet.ViewEvent"
         android:layout_width="0dp"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_weight="2" />
 
 
     <Button
@@ -26,8 +29,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Add New"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="148dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/list"

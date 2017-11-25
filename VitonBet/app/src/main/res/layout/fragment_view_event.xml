@@ -4,6 +4,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#87b14d"
     tools:context="gabrielgrimberg.com.vitonbet.ViewEvent">
 
     <!-- TODO: Update blank fragment layout -->
@@ -29,8 +30,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Description"
-        app:layout_constraintTop_toBottomOf="@+id/betTitle2"
-        tools:layout_editor_absoluteX="85dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/betTitle2" />
 
     <EditText
         android:id="@+id/betAmount"
@@ -40,8 +43,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="betAmount"
-        app:layout_constraintTop_toBottomOf="@+id/betDescription"
-        tools:layout_editor_absoluteX="85dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/betDescription" />
 
     <EditText
         android:id="@+id/betTitle2"
@@ -51,8 +56,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Title"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="84dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/balance"
@@ -61,6 +68,8 @@
         android:layout_marginBottom="92dp"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/placeBet"
-        tools:layout_editor_absoluteX="163dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
