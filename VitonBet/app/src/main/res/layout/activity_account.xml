@@ -7,99 +7,81 @@
     android:background="#87b14d"
     tools:context="gabrielgrimberg.com.vitonbet.AccountActivity">
 
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/dob"
-        android:layout_alignTop="@+id/profilepic"
-        android:text="Username: "
-        android:textColor="@android:color/white"
-        android:textStyle="italic" />
-
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/profilepic"
-        android:layout_marginStart="31dp"
-        android:layout_toEndOf="@+id/profilepic"
-        android:text="E-mail: "
-        android:textColor="@android:color/white"
-        android:textStyle="italic"
-        tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="71dp" />
+    <ImageView
+        android:id="@+id/ivVitonBet"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="435dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ai_primarylogowhite" />
 
     <ImageView
         android:id="@+id/profilepic"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="26dp"
-        app:srcCompat="@drawable/casinoimage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        app:srcCompat="@drawable/profile"
         tools:layout_editor_absoluteX="39dp"
         tools:layout_editor_absoluteY="43dp" />
 
     <TextView
-        android:id="@+id/bio"
+        android:id="@+id/balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/profilepic"
+        android:layout_below="@+id/username"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="54dp"
+        android:fontFamily="monospace"
+        android:text="Balance"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/dobfield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/balance"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:fontFamily="monospace"
+        android:text="Date of Birth"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/emailfield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dobfield"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:fontFamily="monospace"
+        android:text="Email"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/profilepic"
-        android:layout_marginTop="22dp"
-        android:text="Bio:"
-        android:textColor="@android:color/white"
-        android:textStyle="italic" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:fontFamily="monospace"
+        android:text="Welcome"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/dob"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/email"
-        android:layout_alignStart="@+id/email"
-        android:layout_alignTop="@+id/userdob"
-        android:text="DOB: "
-        android:textColor="@android:color/white"
-        android:textStyle="italic" />
 
-    <TextView
-        android:id="@+id/bioenter"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/bio"
-        android:layout_below="@+id/bio"
-        android:text="I am balshoi urod etc etc I am balshoi urod etc etcI am balshoi urod etc etcI am balshoi urod etc etcI am balshoi urod etc etcI am balshoi urod etc etcI am balshoi urod etc etcI am balshoi urod etc etcI am balshoi urod etc etcI am balshoi urod etc etcI am balshoi urod etc etc"
-        android:textColor="@android:color/white" />
-
-    <TextView
-        android:id="@+id/usernameenter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/username"
-        android:layout_alignBottom="@+id/username"
-        android:layout_toEndOf="@+id/username"
-        android:text="Smoke _trees"
-        android:textColor="@android:color/white" />
-
-    <TextView
-        android:id="@+id/userdob"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/email"
-        android:layout_toEndOf="@+id/dob"
-        android:text="21/12/1998"
-        android:textColor="@android:color/white" />
-
-    <TextView
-        android:id="@+id/useremail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/dob"
-        android:layout_toEndOf="@+id/email"
-        android:text="nose@garden.hose"
-        android:textColor="@android:color/white" />
 
 
 </RelativeLayout>

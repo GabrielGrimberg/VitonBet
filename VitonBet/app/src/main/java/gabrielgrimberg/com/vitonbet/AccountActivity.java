@@ -11,5 +11,10 @@ public class AccountActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+
+        Helper.SetBalance(this);
+        Helper.SetUsername(this);
+        Helper.SetDOB(this);
+        Helper.SetEmail(this);
     }
 }

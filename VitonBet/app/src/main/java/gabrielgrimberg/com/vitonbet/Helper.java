@@ -49,6 +49,90 @@ public class Helper
         }
     }
 
+    //Method that finds the username for the user.
+    public static void SetUsername(final AppCompatActivity a)
+    {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null)
+        {
+            DatabaseReference db = FirebaseDatabase.getInstance().getReference()
+                    .child("Users").child(user.getUid().toString()).child("username");
+
+
+            db.addListenerForSingleValueEvent(new ValueEventListener()
+            {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot)
+                {
+                    TextView bal = (TextView)a.findViewById(R.id.username);
+                    bal.setText("Welcome: " + dataSnapshot.getValue());
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError)
+                {
+                    // ...
+                }
+            });
+        }
+    }
+
+    //Method that finds the dob for the user.
+    public static void SetDOB(final AppCompatActivity a)
+    {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null)
+        {
+            DatabaseReference db = FirebaseDatabase.getInstance().getReference()
+                    .child("Users").child(user.getUid().toString()).child("dob");
+
+
+            db.addListenerForSingleValueEvent(new ValueEventListener()
+            {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot)
+                {
+                    TextView bal = (TextView)a.findViewById(R.id.dobfield);
+                    bal.setText("Date of Birth: " + dataSnapshot.getValue());
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError)
+                {
+                    // ...
+                }
+            });
+        }
+    }
+
+    //Method that finds the username for the user.
+    public static void SetEmail(final AppCompatActivity a)
+    {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null)
+        {
+            DatabaseReference db = FirebaseDatabase.getInstance().getReference()
+                    .child("Users").child(user.getUid().toString()).child("email");
+
+
+            db.addListenerForSingleValueEvent(new ValueEventListener()
+            {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot)
+                {
+                    TextView bal = (TextView)a.findViewById(R.id.emailfield);
+                    bal.setText("Your Email: " + dataSnapshot.getValue());
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError)
+                {
+                    // ...
+                }
+            });
+        }
+    }
+
     //Method to change the balance for the user.
     public static void AddBalance(final AppCompatActivity a, final int amount)
     {
