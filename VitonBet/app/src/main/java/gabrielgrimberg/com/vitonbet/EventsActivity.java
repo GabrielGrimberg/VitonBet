@@ -1,13 +1,9 @@
 package gabrielgrimberg.com.vitonbet;
 
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.provider.ContactsContract;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -20,21 +16,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
-
-import javax.xml.transform.Result;
 
 class BetEvent {
     public String title;
@@ -176,17 +167,21 @@ public class EventsActivity extends AppCompatActivity implements EnterEvent.OnFr
                         return null;
                     }
 
-                    protected void onPostExecute(Void unused) {
+                    protected void onPostExecute(Void unused)
+                    {
                         Random r = new Random();
-                        if(r.nextBoolean()) {
+                        if(r.nextBoolean())
+                        {
                             Toast.makeText(a, "You won your bet on " + eventTitle + " and won " + Integer.toString(betAmount*2) + " euro.",
                                     Toast.LENGTH_LONG).show();
 
                             Helper.AddBalance(a, betAmount*2);
-                        } else {
+                        }
+                        else
+                        {
                             Toast.makeText(a, "You lost your bet on " + eventTitle,
                                     Toast.LENGTH_LONG).show();
-                            Helper.AddBalance(a, betAmount);
+                            Helper.AddBalance(a, -betAmount);
                         }
                     }
                 }
