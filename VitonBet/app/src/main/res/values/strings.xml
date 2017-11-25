@@ -1,12 +1,17 @@
 <resources>
+
+    <!-- Header Fields -->
     <string name="app_name">VitonBet</string>
     <string name="register_name">Register</string>
     <string name="login_name">Login</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_home">Home</string>
     <string name="title_events">eSports</string>
-    <string name="title_casino">Casino - When the Fun Stops - Stop</string>
+    <string name="title_casino">Casino - Stop When The Fun Stops!</string>
     <string name="title_cashout">Cash Out</string>
+
+    <!-- Register Form Field -->
+    <string name="birthday">DD/MM/YYYY</string>
 
     <!--Top Nav -->
     <string name="open">Open</string>
@@ -87,7 +92,7 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
-    <string name="title_activity_ad">AdActivity</string>
+    <string name="title_activity_ad">Earn Cash</string>
 
     <string name="action_settings">Settings</string>
 

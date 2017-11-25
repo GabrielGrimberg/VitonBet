@@ -4,14 +4,13 @@ Name: RegisterActivity
 Description: - Activity for a user to Register.
              - Register with: Username, Email, Password, Date of Birth and Phone Number.
              - UI Enhanced.
-
-TODO 1 - Extra layer of error checking.
-
-Last updated: 17th of November.
- */
+             - Error Checking - Password must match and Email must be valid.
+             - DOB Field improved.
+*/
 
 package gabrielgrimberg.com.vitonbet;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +19,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,8 +30,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegisterActivity extends AppCompatActivity
 {
+    //Register fields.
     private EditText xNameField;
     private EditText xEmailField;
     private EditText xPasswordField;
@@ -38,12 +44,18 @@ public class RegisterActivity extends AppCompatActivity
     private EditText xDOBField;
     private EditText xPhoneField;
 
+    //Button to register.
     private Button xRegisterBtn;
 
+    //Firebase connection vars.
     private FirebaseAuth xAuth;
     private DatabaseReference xDatabase;
 
+    //Progress bar.
     private ProgressDialog xProgress;
+
+    //The calendar box to pick your DOB.
+    private DatePickerDialog datePickerDialog;
 
 
 
@@ -53,8 +65,9 @@ public class RegisterActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        xAuth = FirebaseAuth.getInstance();
+        xAuth = FirebaseAuth.getInstance(); //Get instance of current user.
 
+        //Adding to db when user registers.
         xDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
 
         xProgress = new ProgressDialog(this);
@@ -68,6 +81,7 @@ public class RegisterActivity extends AppCompatActivity
 
         xRegisterBtn = (Button) findViewById(R.id.registerBtn);
 
+        //When the button is clicked go to register method.
         xRegisterBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -76,8 +90,36 @@ public class RegisterActivity extends AppCompatActivity
                 startRegister();
             }
         });
+
+        xDOBField = (EditText)findViewById(R.id.dobField);
+
+        //When the DOB field is click show the calendar.
+        xDOBField.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                datePickerDialog.show();
+            }
+        });
+
+        //Set up Calendar view for the datePickerDialog.
+        Calendar calendar = Calendar.getInstance();
+
+        //Make the date view pop up.
+        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener()
+        {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
+            {
+                //Select the date and dismiss the date picker dialog.
+                xDOBField.setText(dayOfMonth+"/"+monthOfYear+"/"+year);
+                datePickerDialog.dismiss();
+            }
+        },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));
     }
 
+    //Method to validate registration and check if input is correct and suitable.
     private void startRegister()
     {
         final String name = xNameField.getText().toString().trim();
@@ -94,13 +136,17 @@ public class RegisterActivity extends AppCompatActivity
                 !TextUtils.isEmpty(password) &&
                 !TextUtils.isEmpty(repassword) &&
                 !TextUtils.isEmpty(dob) &&
-                !TextUtils.isEmpty(phone))
+                !TextUtils.isEmpty(phone) &&
+                password.equals(repassword) &&
+                isEmailValid(email))
 
         {
             xProgress.setMessage("Signing Up...");
             xProgress.show();
 
-            xAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            //If input is good and nothing wrong then add it to th database and show up the home page.
+            xAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>()
+            {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task)
                 {
@@ -126,5 +172,25 @@ public class RegisterActivity extends AppCompatActivity
                 }
             });
         }
+        //If an input was wrong display an error message.
+        else
+        {
+            Toast.makeText(RegisterActivity.this,
+                    "Please make sure that all fields are filled out and that the password matches when you re-entered it. " +
+                            "The email must also be valid and number must have 10 digits.",
+                    Toast.LENGTH_LONG).show();
+        }
     }
+
+    //Reference from : https://stackoverflow.com/questions/6119722/how-to-check-edittexts-text-is-email-address-or-not
+    //Method to check if email is legit
+    public static boolean isEmailValid(String email)
+    {
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+
+        return matcher.matches();
+    }
+    //End of Reference
 }
