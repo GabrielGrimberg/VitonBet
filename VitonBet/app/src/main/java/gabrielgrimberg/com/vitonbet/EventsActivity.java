@@ -186,6 +186,7 @@ public class EventsActivity extends AppCompatActivity implements EnterEvent.OnFr
                         } else {
                             Toast.makeText(a, "You lost your bet on " + eventTitle,
                                     Toast.LENGTH_LONG).show();
+                            Helper.AddBalance(a, betAmount);
                         }
                     }
                 }
