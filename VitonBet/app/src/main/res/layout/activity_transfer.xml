@@ -10,6 +10,18 @@
     <!-- Start of Top Navigator -->
     <!-- End Top Navigator -->
 
+    <Button
+        android:id="@+id/sendBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inputamountf"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:background="@drawable/rounded_shapebtn"
+        android:elevation="0dp"
+        android:text="Send Now!"
+        android:textColor="#FFFFFF" />
+
     <ImageView
         android:id="@+id/ivVitonBet"
         android:layout_width="200dp"
@@ -69,18 +81,6 @@
         android:hint="20"
         android:inputType="phone"
         android:textAlignment="viewStart" />
-
-    <Button
-        android:id="@+id/sendBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/inputamountf"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp"
-        android:background="@drawable/rounded_shapebtn"
-        android:elevation="0dp"
-        android:text="Send Now!"
-        android:textColor="#FFFFFF" />
 
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawerLayout"
