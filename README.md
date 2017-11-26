@@ -111,6 +111,7 @@ Pixel on Android 7.1.1
 #### VitonBet Demo Video
 
 - Click on the image below to play the video.
+
 [![Video](http://img.youtube.com/vi/WoGLBCSc-Zo/0.jpg)](https://youtu.be/WoGLBCSc-Zo)
 
 #### VitonBet Screenshots
