@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativeLayout"
@@ -8,29 +8,52 @@
     android:background="#87b14d"
     tools:context="gabrielgrimberg.com.vitonbet.EventsActivity">
 
+    <ImageView
+        android:id="@+id/ivVitonBet"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ai_primarylogowhite"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="3dp" />
+
     <fragment
         android:id="@+id/enterEvent"
         android:name="gabrielgrimberg.com.vitonbet.EnterEvent"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addNew"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:layout_weight="2"
+        tools:layout_editor_absoluteX="144dp"
+        tools:layout_editor_absoluteY="184dp" />
 
     <fragment
         android:id="@+id/viewEvent"
         android:name="gabrielgrimberg.com.vitonbet.ViewEvent"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/enterEvent"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="2"
+        tools:layout_editor_absoluteX="144dp"
+        tools:layout_editor_absoluteY="246dp" />
 
 
     <Button
         android:id="@+id/addNew"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Add New"
+        android:layout_below="@+id/ivVitonBet"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/rounded_shapebtn"
+        android:text="Add New Event"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,10 +61,12 @@
         android:id="@+id/list"
         android:layout_width="wrap_content"
         android:layout_height="510dp"
-        android:layout_marginTop="8dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/addNew"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addNew" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

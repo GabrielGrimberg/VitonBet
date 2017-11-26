@@ -7,71 +7,61 @@
     android:background="#87b14d"
     tools:context="gabrielgrimberg.com.vitonbet.EnterEvent">
 
-    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:fontFamily="monospace"
+        android:text="Enter the event type, about the event and the note to an admin."
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/submit"
-        android:layout_width="wrap_content"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="29dp"
-        android:text="Submit" />
+        android:layout_alignEnd="@+id/note"
+        android:layout_below="@+id/note"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_shapebtn"
+        android:text="Submit"
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
+        android:layout_alignStart="@+id/description"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="39dp"
         android:ems="10"
-        android:hint="Person 1"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/title2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/title"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="34dp"
-        android:ems="10"
-        android:hint="Person 2"
+        android:hint="John vs Adam"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/note"
-        android:layout_alignStart="@+id/title2"
-        android:layout_marginBottom="15dp"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
         android:ems="10"
-        android:hint="About the event.."
+        android:hint="Biggest fight ever."
         android:inputType="textMultiLine" />
 
     <EditText
         android:id="@+id/note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/submit"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="8dp"
+        android:layout_alignStart="@+id/description"
+        android:layout_alignTop="@+id/description"
+        android:layout_marginTop="81dp"
         android:ems="10"
-        android:hint="Note to admin..."
+        android:hint="Please accept this!"
         android:inputType="textMultiLine" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="VS"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold" />
 
 </RelativeLayout>
