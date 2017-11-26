@@ -1,3 +1,13 @@
+/*
+
+Name: AccountActivity
+
+Description: Activity where the user their details.
+
+Note: Details displayed: Name, DOB, Email and Balance.
+
+*/
+
 package gabrielgrimberg.com.vitonbet;
 
 
@@ -24,11 +34,13 @@ public class AccountActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
+        //Access the DB to display correct information for a specific user.
         Helper.SetBalance(this);
         Helper.SetUsername(this);
         Helper.SetDOB(this);
         Helper.SetEmail(this);
 
+        //Check if user is logged in.
         xAuth = FirebaseAuth.getInstance();
 
         /* Top nav. */
@@ -102,6 +114,7 @@ public class AccountActivity extends AppCompatActivity
         });
     }
 
+    //Method that allows the navigator to open.
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {

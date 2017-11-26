@@ -1,10 +1,15 @@
 /*
-Name: Helper
 
-Description: - Piece of Code to Set the Balance for Current User.
+Name: Helper (Known as: Database Access).
 
-Last updated: 22nd of November.
- */
+Description: Activity that handles the Database with (INSERTS, UPDATE, SELECT and DELETE)
+
+Notes: - Updates the Balance
+       - Deletes Events
+       - Adds Events
+       - Displays events
+       - Retrieves user information.
+*/
 
 package gabrielgrimberg.com.vitonbet;
 
@@ -200,13 +205,19 @@ public class Helper
                         }
 
                         @Override
-                        public void onCancelled(DatabaseError databaseError) { }
+                        public void onCancelled(DatabaseError databaseError)
+                        {
+
+                        }
                     });
                 }
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) { }
+            public void onCancelled(DatabaseError databaseError)
+            {
+
+            }
         });
 
 

@@ -1,3 +1,11 @@
+/*
+
+Name: TransferActivity
+
+Description: Activity that allows users to transfer funds to each other.
+
+*/
+
 package gabrielgrimberg.com.vitonbet;
 
 import android.content.Intent;
@@ -119,14 +127,18 @@ public class TransferActivity extends AppCompatActivity
         });
     }
 
+    //Method that sends the funds over.
     private void sendingCash()
     {
         xEmailField = (EditText) findViewById(R.id.inputemailf);
         xCashAmount = (EditText) findViewById(R.id.inputamountf);
+
+        //Calling the transferCash method from the Helper class.
+        //The Helper class as stated is the Database control class.
         Helper.transferCash(xEmailField.getText().toString(), Integer.parseInt(xCashAmount.getText().toString()));
 
         Toast.makeText(TransferActivity.this,
-                "Your funds have been transferred only if the email matches.",
+                "If the email matches, the funds will be transferred to that account.",
                 Toast.LENGTH_LONG).show();
     }
 

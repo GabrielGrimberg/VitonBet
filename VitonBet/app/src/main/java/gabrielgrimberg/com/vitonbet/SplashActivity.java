@@ -1,10 +1,10 @@
 /*
+
 Name: HomeActivity
-Description: Activity for the loading screen, also known
-             as the splash screen.
-Last updated: 17th of November.
-TODO 1 - (Extra) If needed, base the loading time on the system loading the application.
- */
+
+Description: Activity for the loading screen, also known as the splash screen.
+
+*/
 
 package gabrielgrimberg.com.vitonbet;
 

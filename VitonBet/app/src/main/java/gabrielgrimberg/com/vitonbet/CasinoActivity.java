@@ -7,7 +7,6 @@ Description: - Casino Mode.
              - If you pick red or green and it lands on that then x2 amount.
              - Else lose.
 
-Last updated: 22nd of November.
  */
 package gabrielgrimberg.com.vitonbet;
 
@@ -152,7 +151,7 @@ public class CasinoActivity extends AppCompatActivity
         random = new Random();
         final CasinoActivity mine = this;
 
-        //When button is clicked.
+        //When the spin button is clicked.
         btn.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -162,9 +161,12 @@ public class CasinoActivity extends AppCompatActivity
                 {
                     return;
                 }
+
                 TextView tv = findViewById(R.id.betAmount);
                 String amount = tv.getText().toString();
                 mine.betAmount = Integer.parseInt(amount);
+
+                //Check if the user has enough balance.
                 if (mine.betAmount > Integer.parseInt(((TextView)findViewById(R.id.balance)).getText().toString().replace("€", "").replace("Balance: ", ""))) {
                     Toast.makeText(CasinoActivity.this, "You don't have enough balance.",
                             Toast.LENGTH_LONG).show();
@@ -198,6 +200,8 @@ public class CasinoActivity extends AppCompatActivity
                     {
                         spinning = false;
                         TextView t = (TextView) findViewById(R.id.tvScore);
+
+                        //Degree for the red colour landing.
                         if (numberMapping[(degree-360) / 10] % 2 == 0)
                         {
                             if (mine.color == COLOR.RED)
@@ -213,6 +217,7 @@ public class CasinoActivity extends AppCompatActivity
                             }
                         }
 
+                        //Degree for the green colour landing.
                         if (numberMapping[(degree-360) / 10] == 0)
                         {
                             if (mine.color == COLOR.GREEN)
@@ -227,6 +232,7 @@ public class CasinoActivity extends AppCompatActivity
                             }
                         }
 
+                        //Degree for the black colour landing.
                         if (numberMapping[(degree-360) / 10] % 2 == 1)
                         {
                             if (mine.color == COLOR.BLACK)
