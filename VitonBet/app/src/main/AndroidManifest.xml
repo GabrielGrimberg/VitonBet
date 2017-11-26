@@ -45,11 +45,17 @@
 
         <activity
             android:name=".AdActivity"
-            android:label="@string/title_activity_ad"></activity> <!-- Include the AdActivity configChanges and theme. -->
+            android:label="@string/title_activity_ad" /> <!-- Include the AdActivity configChanges and theme. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
+
+        <activity
+            android:name=".TransferActivity"
+            android:label="@string/title_tcash">
+
+        </activity>
     </application>
 
 </manifest>

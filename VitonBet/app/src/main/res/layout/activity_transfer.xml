@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#87b14d"
+    tools:context="gabrielgrimberg.com.vitonbet.TransferActivity">
+
+    <!-- Start of Top Navigator -->
+    <!-- End Top Navigator -->
+
+    <ImageView
+        android:id="@+id/ivVitonBet"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="435dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ai_primarylogowhite" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="102dp"
+        android:fontFamily="monospace"
+        android:text="Would you like to help a friend out or transfer cash to another account?"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="26dp"
+        android:fontFamily="monospace"
+        android:text="Enter the person's email and the amount you want to send below and hit the send button!"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/inputemailf"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Enter an email"
+        android:inputType="textEmailAddress"
+        android:textAlignment="viewStart" />
+
+    <EditText
+        android:id="@+id/inputamountf"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/inputemailf"
+        android:layout_below="@+id/inputemailf"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="20"
+        android:inputType="phone"
+        android:textAlignment="viewStart" />
+
+    <Button
+        android:id="@+id/sendBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inputamountf"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:background="@drawable/rounded_shapebtn"
+        android:elevation="0dp"
+        android:text="Send Now!"
+        android:textColor="#FFFFFF" />
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/top_nav_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="#FFFFFF"
+            app:headerLayout="@layout/top_nav_header"
+            app:menu="@menu/top_nav">
+
+        </android.support.design.widget.NavigationView>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</RelativeLayout>

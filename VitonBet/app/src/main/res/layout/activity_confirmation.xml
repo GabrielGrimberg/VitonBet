@@ -42,8 +42,7 @@
         android:text="Please note that this is a betting application for people that are 18 years of age and over."
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        tools:text="Please note that this is a betting application for people that are 18 years of age and over." />
+        android:textStyle="bold" />
 
     <CheckBox
         android:id="@+id/checkBox"

@@ -91,8 +91,6 @@ public class RegisterActivity extends AppCompatActivity
             }
         });
 
-        xDOBField = (EditText)findViewById(R.id.dobField);
-
         //When the DOB field is click show the calendar.
         xDOBField.setOnClickListener(new View.OnClickListener()
         {
