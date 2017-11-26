@@ -163,16 +163,16 @@ public class Helper
 
     public static void transferCash(final String email, final int amount) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference myBal = FirebaseDatabase.getInstance().getReference()
+        final DatabaseReference myBalDb = FirebaseDatabase.getInstance().getReference()
                 .child("Users").child(user.getUid().toString()).child("balance");
 
 
-        myBal.addListenerForSingleValueEvent(new ValueEventListener()
+        myBalDb.addListenerForSingleValueEvent(new ValueEventListener()
         {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)
             {
-                int myBal = (int)(long)dataSnapshot.getValue();
+                final int myBal = (int)(long)dataSnapshot.getValue();
                 if (myBal > amount) {
                     DatabaseReference users = FirebaseDatabase.getInstance().getReference()
                             .child("Users");
@@ -185,6 +185,8 @@ public class Helper
                                             .child("Users").child(user.getKey()).child("balance");
                                     bal.setValue((int)(long)user.child("balance").getValue()
                                                 + amount);
+
+                                    myBalDb.setValue(myBal - amount);
                                 }
                             }
                         }
