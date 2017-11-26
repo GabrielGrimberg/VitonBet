@@ -105,13 +105,11 @@ public class TransferActivity extends AppCompatActivity
             }
         });
 
-        xEmailField = (EditText) findViewById(R.id.inputemailf);
-        xCashAmount = (EditText) findViewById(R.id.inputamountf);
 
         xSendCash = (Button) findViewById(R.id.sendBtn);
 
         //When the button is clicked go to register method.
-        xCashAmount.setOnClickListener(new View.OnClickListener()
+        xSendCash.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
@@ -128,7 +126,7 @@ public class TransferActivity extends AppCompatActivity
         Helper.transferCash(xEmailField.getText().toString(), Integer.parseInt(xCashAmount.getText().toString()));
 
         Toast.makeText(TransferActivity.this,
-                "Sending Cash!",
+                "Your funds have been transferred only if the email matches.",
                 Toast.LENGTH_LONG).show();
     }
 

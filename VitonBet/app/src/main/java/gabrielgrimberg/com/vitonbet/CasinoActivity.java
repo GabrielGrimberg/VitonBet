@@ -113,6 +113,11 @@ public class CasinoActivity extends AppCompatActivity
 
                         return true;
 
+                    case R.id.nav_sendcash:
+                        Intent sendActivity = new Intent(getApplicationContext(), TransferActivity.class);
+                        sendActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(sendActivity);
+
                     case R.id.nav_ad:
                         Intent adActivity = new Intent(getApplicationContext(), AdActivity.class);
                         adActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
