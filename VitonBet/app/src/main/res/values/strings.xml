@@ -8,6 +8,8 @@
     <string name="title_events">eSports</string>
     <string name="title_casino">Casino - Stop When The Fun Stops!</string>
     <string name="title_tcash">Transfer Cash</string>
+    <string name="title_myacc">My Profile</string>
+    <string name="title_esportse">eSports Events</string>
 
     <!-- Register Form Field -->
     <string name="birthday">DD/MM/YYYY</string>

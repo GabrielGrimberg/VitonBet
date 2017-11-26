@@ -209,6 +209,7 @@ public class AdActivity extends AppCompatActivity
     {
         if(xToggle.onOptionsItemSelected(item))
         {
+            mNextLevelButton.setVisibility(View.INVISIBLE);
             return true;
         }
         return super.onOptionsItemSelected(item);

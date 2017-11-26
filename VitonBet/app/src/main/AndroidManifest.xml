@@ -22,6 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".MainActivity" />
         <activity
             android:name=".RegisterActivity"
@@ -30,11 +31,19 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/login_name" />
+
         <activity
             android:name=".CasinoActivity"
             android:label="@string/title_casino" />
-        <activity android:name=".AccountActivity" />
-        <activity android:name=".EventsActivity" />
+
+        <activity
+            android:name=".AccountActivity"
+            android:label="@string/title_myacc"/>
+
+        <activity
+            android:name=".EventsActivity"
+            android:label="@string/title_esportse"/>
+
         <activity
             android:name=".ConfirmationActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
@@ -45,7 +54,8 @@
 
         <activity
             android:name=".AdActivity"
-            android:label="@string/title_activity_ad" /> <!-- Include the AdActivity configChanges and theme. -->
+            android:label="@string/title_activity_ad" />
+
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
@@ -54,8 +64,8 @@
         <activity
             android:name=".TransferActivity"
             android:label="@string/title_tcash">
-
         </activity>
+
     </application>
 
 </manifest>

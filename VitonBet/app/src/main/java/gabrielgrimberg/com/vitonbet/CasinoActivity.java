@@ -47,6 +47,10 @@ public class CasinoActivity extends AppCompatActivity
     ImageView ivWheel; //Image for the wheel.
     boolean spinning = false;
 
+    ToggleButton black;
+    ToggleButton red;
+    ToggleButton green;
+
     Random random; //For RNG.
 
     int degree = 0;
@@ -140,6 +144,10 @@ public class CasinoActivity extends AppCompatActivity
         btn = (Button) findViewById(R.id.spinWheel);
         tvOutcome = (TextView) findViewById(R.id.tvScore);
         ivWheel = (ImageView) findViewById(R.id.imageView);
+
+        black = (ToggleButton) findViewById(R.id.black);
+        red = (ToggleButton) findViewById(R.id.red);
+        green = (ToggleButton) findViewById(R.id.green);
 
         random = new Random();
         final CasinoActivity mine = this;
@@ -326,7 +334,10 @@ public class CasinoActivity extends AppCompatActivity
     {
         if(xToggle.onOptionsItemSelected(item))
         {
-            //btn.setVisibility(View.INVISIBLE);
+            btn.setVisibility(View.INVISIBLE);
+            black.setVisibility(View.INVISIBLE);
+            red.setVisibility(View.INVISIBLE);
+            green.setVisibility(View.INVISIBLE);
             return true;
         }
 

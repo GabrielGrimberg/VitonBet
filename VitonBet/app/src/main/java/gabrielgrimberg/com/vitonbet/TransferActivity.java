@@ -135,6 +135,7 @@ public class TransferActivity extends AppCompatActivity
     {
         if(xToggle.onOptionsItemSelected(item))
         {
+            xSendCash.setVisibility(View.INVISIBLE);
             return true;
         }
         return super.onOptionsItemSelected(item);
