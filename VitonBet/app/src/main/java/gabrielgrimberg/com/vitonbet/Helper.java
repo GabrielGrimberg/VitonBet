@@ -161,7 +161,9 @@ public class Helper
         }
     }
 
-    public static void transferCash(final String email, final int amount) {
+    //Method to transfer cash over to another user.
+    public static void transferCash(final String email, final int amount)
+    {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         final DatabaseReference myBalDb = FirebaseDatabase.getInstance().getReference()
                 .child("Users").child(user.getUid().toString()).child("balance");
@@ -173,14 +175,20 @@ public class Helper
             public void onDataChange(DataSnapshot dataSnapshot)
             {
                 final int myBal = (int)(long)dataSnapshot.getValue();
-                if (myBal > amount) {
+
+                if (myBal > amount)
+                {
                     DatabaseReference users = FirebaseDatabase.getInstance().getReference()
                             .child("Users");
-                    users.addListenerForSingleValueEvent(new ValueEventListener() {
+                    users.addListenerForSingleValueEvent(new ValueEventListener()
+                    {
                         @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            for (DataSnapshot user : dataSnapshot.getChildren()) {
-                                if (email.equals(user.child("email").getValue())) {
+                        public void onDataChange(DataSnapshot dataSnapshot)
+                        {
+                            for (DataSnapshot user : dataSnapshot.getChildren())
+                            {
+                                if (email.equals(user.child("email").getValue()))
+                                {
                                     DatabaseReference bal = FirebaseDatabase.getInstance().getReference()
                                             .child("Users").child(user.getKey()).child("balance");
                                     bal.setValue((int)(long)user.child("balance").getValue()

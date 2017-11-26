@@ -141,5 +141,4 @@ public class TransferActivity extends AppCompatActivity
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

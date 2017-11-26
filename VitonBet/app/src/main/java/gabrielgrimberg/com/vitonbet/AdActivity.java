@@ -98,6 +98,13 @@ public class AdActivity extends AppCompatActivity
 
                         return true;
 
+                    case R.id.nav_sendcash:
+                        Intent sendActivity = new Intent(getApplicationContext(), TransferActivity.class);
+                        sendActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(sendActivity);
+
+                        return true;
+
                     case R.id.nav_ad:
                         Intent adActivity = new Intent(getApplicationContext(), AdActivity.class);
                         adActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
