@@ -74,6 +74,38 @@ public class CasinoActivity extends AppCompatActivity
         xToggle = new ActionBarDrawerToggle(this, xDrawerLayout, R.string.open, R.string.close);
 
         xDrawerLayout.addDrawerListener(xToggle);
+        xDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+        @Override
+        public void onDrawerClosed(View drawerView) {
+            btn.setVisibility(View.VISIBLE);
+            black.setVisibility(View.VISIBLE);
+            red.setVisibility(View.VISIBLE);
+            green.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        public void onDrawerSlide(View drawerView, float slideOffset) {
+
+        }
+
+        @Override
+        public void onDrawerStateChanged(int newState) {
+            if(newState == xDrawerLayout.STATE_DRAGGING || newState == xDrawerLayout.STATE_SETTLING) {
+                btn.setVisibility(View.INVISIBLE);
+                black.setVisibility(View.INVISIBLE);
+                red.setVisibility(View.INVISIBLE);
+                green.setVisibility(View.INVISIBLE);
+            }
+        }
+
+        @Override
+        public void onDrawerOpened(View drawerView) {
+            btn.setVisibility(View.INVISIBLE);
+            black.setVisibility(View.INVISIBLE);
+            red.setVisibility(View.INVISIBLE);
+            green.setVisibility(View.INVISIBLE);
+        }
+        });
         xToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -335,15 +367,13 @@ public class CasinoActivity extends AppCompatActivity
         green.setSelected(true);
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
         if(xToggle.onOptionsItemSelected(item))
         {
-            btn.setVisibility(View.INVISIBLE);
-            black.setVisibility(View.INVISIBLE);
-            red.setVisibility(View.INVISIBLE);
-            green.setVisibility(View.INVISIBLE);
+
             return true;
         }
 
