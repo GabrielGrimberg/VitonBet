@@ -38,6 +38,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Predicate;
 
 class BetEvent
 {
@@ -219,6 +220,17 @@ public class EventsActivity extends AppCompatActivity implements EnterEvent.OnFr
                                     Toast.LENGTH_LONG).show();
                             Helper.AddBalance(a, -betAmount);
                         }
+
+                        DatabaseReference event = FirebaseDatabase.getInstance().getReference().child("Events").child(eventTitle);
+                        event.removeValue();
+                        events.removeIf(new Predicate<BetEvent>() {
+                            @Override
+                            public boolean test(BetEvent betEvent) {
+                                if (betEvent.title.equals(eventTitle)) return true;
+                                return false;
+                            }
+                        });
+                        adapter.notifyDataSetChanged();
                     }
                 }
 
