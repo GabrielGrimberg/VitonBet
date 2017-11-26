@@ -326,8 +326,10 @@ public class CasinoActivity extends AppCompatActivity
     {
         if(xToggle.onOptionsItemSelected(item))
         {
+            //btn.setVisibility(View.INVISIBLE);
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 }
