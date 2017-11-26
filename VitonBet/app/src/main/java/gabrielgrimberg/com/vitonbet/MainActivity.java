@@ -22,6 +22,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -31,6 +33,11 @@ public class MainActivity extends AppCompatActivity
     private FirebaseAuth.AuthStateListener xAuthListner;
 
     private Toolbar xToolbar;
+
+    //ImageViews
+    private ImageView ivCasino;
+    private ImageView ivEvents;
+    private ImageView ivEarnCash;
 
     //Top nav vars.
     private DrawerLayout xDrawerLayout;
@@ -43,6 +50,10 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         xAuth = FirebaseAuth.getInstance();
+
+        ivCasino = (ImageView) findViewById(R.id.ivcasino);
+        ivEvents = (ImageView) findViewById(R.id.ivsports);
+        ivEarnCash = (ImageView) findViewById(R.id.ivcash);
 
         /* Top nav. */
         xDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
@@ -134,6 +145,45 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         };
+
+        ivCasino.setOnClickListener(new View.OnClickListener()
+        {
+
+            @Override
+            public void onClick(View view)
+            {
+                Intent xcasinoActivity = new Intent(MainActivity.this, CasinoActivity.class);
+                xcasinoActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(xcasinoActivity);
+            }
+
+        });
+
+        ivEvents.setOnClickListener(new View.OnClickListener()
+        {
+
+            @Override
+            public void onClick(View view)
+            {
+                Intent xeventsActivity = new Intent(MainActivity.this, EventsActivity.class);
+                xeventsActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(xeventsActivity);
+            }
+
+        });
+
+        ivEarnCash.setOnClickListener(new View.OnClickListener()
+        {
+
+            @Override
+            public void onClick(View view)
+            {
+                Intent xadActivity = new Intent(MainActivity.this, AdActivity.class);
+                xadActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(xadActivity);
+            }
+
+        });
 
     }
 

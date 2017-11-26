@@ -1,7 +1,6 @@
 /*
 
 Name: TransferActivity
-
 Description: Activity that allows users to transfer funds to each other.
 
 */
