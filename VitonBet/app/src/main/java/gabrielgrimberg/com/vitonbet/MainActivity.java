@@ -1,15 +1,29 @@
-/*
+/***************************************************************************************************************
 Application Name:   VitonBet
-Application Status: In Development for Stable Release.
-Version:            v0.9
+Application Status: Stable Assignment Release
+Version:            v1.0
+
+About:  - VitonBet is a betting application for Android phones with version 7.1.1.
+        - Users can create events and bet on other events.
+        - Users can go into the casino and test their luck with the roulette wheel.
+        - If the user runs out of funds, watch ads to gain some funds.
+        - Does not use real money.
+        - Users can view their details in the home page.
+        - Transferring cash to other users.
+        - Age verification for VitonBet.
+        - The basics of logging in and registering for the application with error handling.
+        - Firebase used over SQLite.
+        - Updates, Deletes, Selects and Inserts are all performed in VitonBet.
+        - VitonBet meets the standard set out by the lecturer for this assignment with bonus features.
+        - Refer to the Design Document to view the standards.
+        - VitonBet followed the Design Plan set out by the group with a few changes.
 
 Name: MainActivity
 
 Description: - The heart of the app.
              - Main Activity to display events.
              - If users is not logged in activity loads up with the Login Activity.
-
- */
+ ***************************************************************************************************************/
 
 package gabrielgrimberg.com.vitonbet;
 
