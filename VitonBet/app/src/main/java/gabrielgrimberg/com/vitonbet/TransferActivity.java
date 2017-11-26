@@ -123,7 +123,10 @@ public class TransferActivity extends AppCompatActivity
 
     private void sendingCash()
     {
-        //TODO Zan : Add Functionality in here.
+        xEmailField = (EditText) findViewById(R.id.inputemailf);
+        xCashAmount = (EditText) findViewById(R.id.inputamountf);
+        Helper.transferCash(xEmailField.getText().toString(), Integer.parseInt(xCashAmount.getText().toString()));
+
         Toast.makeText(TransferActivity.this,
                 "Sending Cash!",
                 Toast.LENGTH_LONG).show();

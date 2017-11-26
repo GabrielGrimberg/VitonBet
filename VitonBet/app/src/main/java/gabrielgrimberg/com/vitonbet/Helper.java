@@ -161,4 +161,45 @@ public class Helper
         }
     }
 
+    public static void transferCash(final String email, final int amount) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference myBal = FirebaseDatabase.getInstance().getReference()
+                .child("Users").child(user.getUid().toString()).child("balance");
+
+
+        myBal.addListenerForSingleValueEvent(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                int myBal = (int)(long)dataSnapshot.getValue();
+                if (myBal > amount) {
+                    DatabaseReference users = FirebaseDatabase.getInstance().getReference()
+                            .child("Users");
+                    users.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot user : dataSnapshot.getChildren()) {
+                                if (email.equals(user.child("email").getValue())) {
+                                    DatabaseReference bal = FirebaseDatabase.getInstance().getReference()
+                                            .child("Users").child(user.getKey()).child("balance");
+                                    bal.setValue((int)(long)user.child("balance").getValue()
+                                                + amount);
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) { }
+                    });
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) { }
+        });
+
+
+    }
+
 }
