@@ -114,4 +114,41 @@ Pixel on Android 7.1.1
 
 #### VitonBet Screenshots
 
-- To be added.
+##### Splash Screen
+![Sketch](https://github.com/GabrielGrimberg/VitonBet/blob/master/Screenshots/Splash.jpg?raw=true)
+
+##### Age Verification Screen
+![Sketch](https://github.com/GabrielGrimberg/VitonBet/blob/master/Screenshots/Age.jpg?raw=true)
+
+##### Login Screen
+![Sketch](https://github.com/GabrielGrimberg/VitonBet/blob/master/Screenshots/Login.jpg?raw=true)
+
+##### Register Screen
+![Sketch](https://github.com/GabrielGrimberg/VitonBet/blob/master/Screenshots/Register.jpg?raw=true)
+
+##### Home Screen
+![Sketch](https://github.com/GabrielGrimberg/VitonBet/blob/master/Screenshots/Main.jpg?raw=true)
+
+##### Navigator 
+![Sketch](https://github.com/GabrielGrimberg/VitonBet/blob/master/Screenshots/Nav.jpg?raw=true)
+
+##### Account Screen
+![Sketch](https://github.com/GabrielGrimberg/VitonBet/blob/master/Screenshots/Home.jpg?raw=true)
+
+##### Events Screen
+![Sketch](https://github.com/GabrielGrimberg/VitonBet/blob/master/Screenshots/Events.jpg?raw=true)
+
+##### Creating Event Screen
+![Sketch](https://github.com/GabrielGrimberg/VitonBet/blob/master/Screenshots/MakeE.jpg?raw=true)
+
+##### Placing Bet Screen
+- Add.
+
+##### Casino Screen
+![Sketch](https://github.com/GabrielGrimberg/VitonBet/blob/master/Screenshots/Casino.jpg?raw=true)
+
+##### Transfer Funds Screen
+![Sketch](https://github.com/GabrielGrimberg/VitonBet/blob/master/Screenshots/Transfer.jpg?raw=true)
+
+##### Advertisement Screen
+![Sketch](https://github.com/GabrielGrimberg/VitonBet/blob/master/Screenshots/Ad.jpg?raw=true)
