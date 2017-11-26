@@ -74,7 +74,9 @@ public class CasinoActivity extends AppCompatActivity
         xToggle = new ActionBarDrawerToggle(this, xDrawerLayout, R.string.open, R.string.close);
 
         xDrawerLayout.addDrawerListener(xToggle);
-        xDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+
+        xDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener()
+        {
         @Override
         public void onDrawerClosed(View drawerView) {
             btn.setVisibility(View.VISIBLE);
@@ -84,13 +86,16 @@ public class CasinoActivity extends AppCompatActivity
         }
 
         @Override
-        public void onDrawerSlide(View drawerView, float slideOffset) {
+        public void onDrawerSlide(View drawerView, float slideOffset)
+        {
 
         }
 
         @Override
-        public void onDrawerStateChanged(int newState) {
-            if(newState == xDrawerLayout.STATE_DRAGGING || newState == xDrawerLayout.STATE_SETTLING) {
+        public void onDrawerStateChanged(int newState)
+        {
+            if(newState == xDrawerLayout.STATE_DRAGGING || newState == xDrawerLayout.STATE_SETTLING)
+            {
                 btn.setVisibility(View.INVISIBLE);
                 black.setVisibility(View.INVISIBLE);
                 red.setVisibility(View.INVISIBLE);
@@ -99,7 +104,8 @@ public class CasinoActivity extends AppCompatActivity
         }
 
         @Override
-        public void onDrawerOpened(View drawerView) {
+        public void onDrawerOpened(View drawerView)
+        {
             btn.setVisibility(View.INVISIBLE);
             black.setVisibility(View.INVISIBLE);
             red.setVisibility(View.INVISIBLE);

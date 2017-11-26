@@ -58,6 +58,37 @@ public class AdActivity extends AppCompatActivity
         xToggle = new ActionBarDrawerToggle(this, xDrawerLayout, R.string.open, R.string.close);
 
         xDrawerLayout.addDrawerListener(xToggle);
+
+        xDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener()
+        {
+            @Override
+            public void onDrawerClosed(View drawerView)
+            {
+                mNextLevelButton.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset)
+            {
+
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState)
+            {
+                if(newState == xDrawerLayout.STATE_DRAGGING || newState == xDrawerLayout.STATE_SETTLING)
+                {
+                    mNextLevelButton.setVisibility(View.INVISIBLE);
+                }
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView)
+            {
+                mNextLevelButton.setVisibility(View.INVISIBLE);
+            }
+        });
+
         xToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -210,9 +241,10 @@ public class AdActivity extends AppCompatActivity
     {
         if(xToggle.onOptionsItemSelected(item))
         {
-            mNextLevelButton.setVisibility(View.INVISIBLE);
+
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 }

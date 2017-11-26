@@ -35,12 +35,26 @@
         android:id="@+id/sendBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/inputamountf"
         android:layout_below="@+id/inputamountf"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/rounded_shapebtn"
         android:elevation="0dp"
         android:text="Send Now!"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/sendBtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/sendBtn"
+        android:layout_alignBottom="@+id/sendBtn"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@+id/sendBtn"
+        android:background="@drawable/rounded_shapebtn"
+        android:elevation="0dp"
+        android:text="Go Back"
         android:textColor="#FFFFFF" />
 
     <ImageView
@@ -59,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="102dp"
+        android:layout_marginTop="93dp"
         android:fontFamily="monospace"
         android:text="Would you like to help a friend out or transfer cash to another account?"
         android:textAlignment="center"
@@ -78,25 +92,5 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
-
-    <android.support.v4.widget.DrawerLayout
-        android:id="@+id/drawerLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
-
-        <android.support.design.widget.NavigationView
-            android:id="@+id/top_nav_id"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:background="#FFFFFF"
-            app:headerLayout="@layout/top_nav_header"
-            app:menu="@menu/top_nav">
-
-        </android.support.design.widget.NavigationView>
-
-    </android.support.v4.widget.DrawerLayout>
 
 </RelativeLayout>
