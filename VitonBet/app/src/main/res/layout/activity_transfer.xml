@@ -7,8 +7,29 @@
     android:background="#87b14d"
     tools:context="gabrielgrimberg.com.vitonbet.TransferActivity">
 
-    <!-- Start of Top Navigator -->
-    <!-- End Top Navigator -->
+    <EditText
+        android:id="@+id/inputemailf"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Enter an email"
+        android:inputType="textEmailAddress"
+        android:textAlignment="viewStart" />
+
+    <EditText
+        android:id="@+id/inputamountf"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/inputemailf"
+        android:layout_below="@+id/inputemailf"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="20"
+        android:inputType="phone"
+        android:textAlignment="viewStart" />
 
     <Button
         android:id="@+id/sendBtn"
@@ -57,30 +78,6 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/inputemailf"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView4"
-        android:layout_below="@+id/textView4"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:hint="Enter an email"
-        android:inputType="textEmailAddress"
-        android:textAlignment="viewStart" />
-
-    <EditText
-        android:id="@+id/inputamountf"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/inputemailf"
-        android:layout_below="@+id/inputemailf"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="20"
-        android:inputType="phone"
-        android:textAlignment="viewStart" />
 
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawerLayout"

@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/description"
         android:layout_below="@+id/textView2"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="26dp"
         android:ems="10"
         android:hint="John vs Adam"
         android:inputType="textPersonName" />
@@ -48,7 +48,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
         android:ems="10"
         android:hint="Biggest fight ever."
         android:inputType="textMultiLine" />
@@ -58,8 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/description"
-        android:layout_alignTop="@+id/description"
-        android:layout_marginTop="81dp"
+        android:layout_below="@+id/description"
         android:ems="10"
         android:hint="Please accept this!"
         android:inputType="textMultiLine" />

@@ -1,5 +1,17 @@
-package gabrielgrimberg.com.vitonbet;
+/*
 
+Name: EventsActivity
+
+Description: Activity that handles the events.
+
+Notes: - Activity that holds the List View.
+       - Allows user to create an event or place a bet.
+       - Calls the fragments when a user want's to place a bet or create an event.
+       - Adds the event details into the Database.
+       - Retrieves the events from the Database to display to the user.
+*/
+
+package gabrielgrimberg.com.vitonbet;
 
 import android.content.Context;
 import android.net.Uri;
@@ -26,6 +38,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Predicate;
 
 class BetEvent
 {
@@ -33,8 +46,8 @@ class BetEvent
     public String description;
 }
 
-public class EventsActivity extends AppCompatActivity implements EnterEvent.OnFragmentInteractionListener, ViewEvent.OnFragmentInteractionListener {
-    String[] teams = {"Na'Vi", "Virtus Dno", "Chelsea FC", "ManUnited"};
+public class EventsActivity extends AppCompatActivity implements EnterEvent.OnFragmentInteractionListener, ViewEvent.OnFragmentInteractionListener
+{
     ArrayList<String> listItems = new ArrayList<String>();
     ArrayAdapter<String> adapter;
     static List<BetEvent> events = new ArrayList<>();
@@ -55,12 +68,17 @@ public class EventsActivity extends AppCompatActivity implements EnterEvent.OnFr
 
         Helper.SetBalance(this);
 
+        //Custom adapter.
         adapter = new CusAdapter(this,
                 android.R.layout.simple_list_item_1,
                 listItems);
+
+        //ListView ID.
         final ListView lv = findViewById(R.id.list);
 
         lv.setAdapter(adapter);
+
+        //When the list view item is clicked.
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override
@@ -90,11 +108,6 @@ public class EventsActivity extends AppCompatActivity implements EnterEvent.OnFr
             }
         });
 
-        for (int i = 0; i < 10; i++)
-        {
-            //addItems(teams[random.nextInt(4)] + " VS. " + teams[random.nextInt(4)]);
-        }
-
         Button addNewBtn = findViewById(R.id.addNew);
         addNewBtn.setOnClickListener(new View.OnClickListener()
         {
@@ -108,8 +121,10 @@ public class EventsActivity extends AppCompatActivity implements EnterEvent.OnFr
         });
 
         Button submit = findViewById(R.id.submit);
+
         submit.setOnClickListener(new View.OnClickListener()
         {
+            //Adding to the database when the user creates an event.
             @Override
             public void onClick(View v)
             {
@@ -126,12 +141,14 @@ public class EventsActivity extends AppCompatActivity implements EnterEvent.OnFr
                 findViewById(R.id.list).setVisibility(View.VISIBLE);
                 findViewById(R.id.addNew).setVisibility(View.VISIBLE);
 
-                Toast.makeText(EventsActivity.this, "Your submission will be reviwed by an admin.",
+                Toast.makeText(EventsActivity.this, "Your submission will be reviewed by an admin.",
                         Toast.LENGTH_LONG).show();
             }
         });
 
         Button submitBet = findViewById(R.id.placeBet);
+
+        //When the user tries to place a bet.
         submitBet.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -145,6 +162,7 @@ public class EventsActivity extends AppCompatActivity implements EnterEvent.OnFr
                 String betAmount = ((EditText) findViewById(R.id.betAmount)).getText().toString();
                 String title = ((EditText) findViewById(R.id.betTitle2)).getText().toString();
 
+                //Error checking to allow user to place bet only if the user has enough funds.
                 if (Integer.parseInt(betAmount) > Integer.parseInt(((TextView) findViewById(R.id.balance)).getText().toString().replace("€", "").replace("Balance: ", ""))) {
                     Toast.makeText(EventsActivity.this, "You don't have enough balance.",
                             Toast.LENGTH_LONG).show();
@@ -155,6 +173,7 @@ public class EventsActivity extends AppCompatActivity implements EnterEvent.OnFr
                 Toast.makeText(EventsActivity.this, "You will get notified when the result of the event is out.",
                         Toast.LENGTH_LONG).show();
 
+                //RNG embedded class to determine the outcome of the bet placed.
                 class BetResult extends AsyncTask<String, Void, Void>
                 {
                     AppCompatActivity a;
@@ -201,6 +220,17 @@ public class EventsActivity extends AppCompatActivity implements EnterEvent.OnFr
                                     Toast.LENGTH_LONG).show();
                             Helper.AddBalance(a, -betAmount);
                         }
+
+                        DatabaseReference event = FirebaseDatabase.getInstance().getReference().child("Events").child(eventTitle);
+                        event.removeValue();
+                        events.removeIf(new Predicate<BetEvent>() {
+                            @Override
+                            public boolean test(BetEvent betEvent) {
+                                if (betEvent.title.equals(eventTitle)) return true;
+                                return false;
+                            }
+                        });
+                        adapter.notifyDataSetChanged();
                     }
                 }
 
