@@ -47,7 +47,7 @@
         android:layout_height="250dp"
         android:layout_above="@+id/spinWheel"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="29dp"
         app:srcCompat="@drawable/ic_wheel" />
 
     <ImageView
@@ -113,8 +113,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:inputType="phone"
         android:hint="Enter amount to bet"
-        android:inputType="textPersonName"
         android:textAlignment="center" />
 
     <android.support.v4.widget.DrawerLayout
