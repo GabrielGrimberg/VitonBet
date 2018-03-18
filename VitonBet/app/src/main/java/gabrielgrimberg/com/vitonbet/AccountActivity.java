@@ -1,12 +1,8 @@
-/*
-
-Name: AccountActivity
-
-Description: Activity where the user their details.
-
-Note: Details displayed: Name, DOB, Email and Balance.
-
-*/
+/***
+ * Name: AccountActivity
+ * Description: Activity where the user their details.
+ * Note: Details displayed: Name, DOB, Email and Balance.
+ */
 
 package gabrielgrimberg.com.vitonbet;
 
@@ -21,26 +17,26 @@ import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class AccountActivity extends AppCompatActivity
-{
-    //Top nav vars.
+public class AccountActivity extends AppCompatActivity {
+
+    // Top nav vars.
     private DrawerLayout xDrawerLayout;
     private ActionBarDrawerToggle xToggle;
     private FirebaseAuth xAuth;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
-        //Access the DB to display correct information for a specific user.
+        // Access the DB to display correct information for a specific user.
         Helper.SetBalance(this);
         Helper.SetUsername(this);
         Helper.SetDOB(this);
         Helper.SetEmail(this);
 
-        //Check if user is logged in.
+        // Check if user is logged in.
         xAuth = FirebaseAuth.getInstance();
 
         /* Top nav. */
@@ -55,13 +51,13 @@ public class AccountActivity extends AppCompatActivity
         NavigationView xNavigationView = (NavigationView) findViewById(R.id.top_nav_id);
 
         /* Activity Change when Item from Top Navigator is Clicked */
-        xNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
-        {
+        xNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
             @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem)
-            {
-                switch (menuItem.getItemId())
-                {
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+
+                switch (menuItem.getItemId()) {
+
                     case R.id.nav_account:
                         Intent accountActivity = new Intent(getApplicationContext(), AccountActivity.class);
                         accountActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -109,19 +105,21 @@ public class AccountActivity extends AppCompatActivity
 
                         return true;
                 }
+
                 return true;
             }
         });
     }
 
-    //Method that allows the navigator to open.
+    // Method that allows the navigator to open.
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        if(xToggle.onOptionsItemSelected(item))
-        {
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(xToggle.onOptionsItemSelected(item)) {
+
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 }

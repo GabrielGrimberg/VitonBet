@@ -1,11 +1,10 @@
-/*
-Name: CasinoActivity
-
-Description: - Casino Mode.
-             - Spinning the wheel to win or lose.
-             - If lands on green: 4x amount
-             - If you pick red or green and it lands on that then x2 amount.
-             - Else lose.
+/***
+ * Name: CasinoActivity
+ * Description:  - Casino Mode.
+                 - Spinning the wheel to win or lose.
+                 - If lands on green: 4x amount
+                 - If you pick red or green and it lands on that then x2 amount.
+                 - Else lose.
 
  */
 package gabrielgrimberg.com.vitonbet;
@@ -33,18 +32,19 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Random;
 
-public class CasinoActivity extends AppCompatActivity
-{
+public class CasinoActivity extends AppCompatActivity {
+
     public int[] numberMapping = {0, 29, 16, 1, 20, 20, 15, 4, 27, 28, 5, 14, 21, 2,
                                     17, 8, 23, 23, 10, 19, 26, 11, 18, 7, 22, 13, 32,
                                     25, 12, 9, 9, 30, 15, 24, 3, 6};
 
-    public enum COLOR {RED, BLACK, GREEN};
+    public enum COLOR {RED, BLACK, GREEN}
     public COLOR color = COLOR.GREEN;
-    Button btn; //Button to spin.
-    TextView tvOutcome; //Displays the results.
-    ImageView ivWheel; //Image for the wheel.
     boolean spinning = false;
+
+    Button btn;               // Button to spin.
+    TextView tvOutcome;       // Displays the results.
+    ImageView ivWheel;        // Image for the wheel.
 
     ToggleButton black;
     ToggleButton red;
@@ -56,14 +56,14 @@ public class CasinoActivity extends AppCompatActivity
     int oldDegree = 0;
     public int betAmount = 0;
 
-    //Top nav vars.
+    // Top nav vars.
     private DrawerLayout xDrawerLayout;
     private ActionBarDrawerToggle xToggle;
     private FirebaseAuth xAuth;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_casino);
 
@@ -75,8 +75,8 @@ public class CasinoActivity extends AppCompatActivity
 
         xDrawerLayout.addDrawerListener(xToggle);
 
-        xDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener()
-        {
+        xDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+
         @Override
         public void onDrawerClosed(View drawerView) {
             btn.setVisibility(View.VISIBLE);
@@ -86,16 +86,15 @@ public class CasinoActivity extends AppCompatActivity
         }
 
         @Override
-        public void onDrawerSlide(View drawerView, float slideOffset)
-        {
+        public void onDrawerSlide(View drawerView, float slideOffset) {
 
         }
 
         @Override
-        public void onDrawerStateChanged(int newState)
-        {
-            if(newState == xDrawerLayout.STATE_DRAGGING || newState == xDrawerLayout.STATE_SETTLING)
-            {
+        public void onDrawerStateChanged(int newState) {
+
+            if(newState == xDrawerLayout.STATE_DRAGGING || newState == xDrawerLayout.STATE_SETTLING) {
+
                 btn.setVisibility(View.INVISIBLE);
                 black.setVisibility(View.INVISIBLE);
                 red.setVisibility(View.INVISIBLE);
@@ -104,8 +103,8 @@ public class CasinoActivity extends AppCompatActivity
         }
 
         @Override
-        public void onDrawerOpened(View drawerView)
-        {
+        public void onDrawerOpened(View drawerView) {
+
             btn.setVisibility(View.INVISIBLE);
             black.setVisibility(View.INVISIBLE);
             red.setVisibility(View.INVISIBLE);
@@ -119,13 +118,13 @@ public class CasinoActivity extends AppCompatActivity
         NavigationView xNavigationView = (NavigationView) findViewById(R.id.top_nav_id);
 
         /* Activity Change when Item from Top Navigator is Clicked */
-        xNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
-        {
+        xNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
             @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem)
-            {
-                switch (menuItem.getItemId())
-                {
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+
+                switch (menuItem.getItemId()) {
+
                     case R.id.nav_account:
                         Intent accountActivity = new Intent(getApplicationContext(), AccountActivity.class);
                         accountActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -171,10 +170,10 @@ public class CasinoActivity extends AppCompatActivity
 
                         return true;
                 }
+
                 return true;
             }
         });
-
 
         Helper.SetBalance(this);
 
@@ -187,32 +186,34 @@ public class CasinoActivity extends AppCompatActivity
         green = (ToggleButton) findViewById(R.id.green);
 
         random = new Random();
+
         final CasinoActivity mine = this;
 
-        //When the spin button is clicked.
-        btn.setOnClickListener(new View.OnClickListener()
-        {
+        // When the spin button is clicked.
+        btn.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View view)
-            {
-                if (spinning)
-                {
-                    return;
-                }
+            public void onClick(View view) {
+
+                if (spinning) { return; }
 
                 TextView tv = findViewById(R.id.betAmount);
                 String amount = tv.getText().toString();
                 mine.betAmount = Integer.parseInt(amount);
 
-                //Check if the user has enough balance.
-                if (mine.betAmount > Integer.parseInt(((TextView)findViewById(R.id.balance)).getText().toString().replace("€", "").replace("Balance: ", ""))) {
+                // Check if the user has enough balance.
+                if (mine.betAmount > Integer.parseInt(((TextView)findViewById(R.id.balance))
+                        .getText().toString()
+                        .replace("€", "")
+                        .replace("Balance: ", ""))) {
+
                     Toast.makeText(CasinoActivity.this, "You don't have enough balance.",
                             Toast.LENGTH_LONG).show();
 
                     return;
                 }
 
-                oldDegree = degree % 360; //Wheel is 360 degrees.
+                oldDegree = degree % 360; // Wheel is 360 degrees.
 
                 degree = (int)Math.round((random.nextInt(360) + 360)/10.0) * 10;
 
@@ -225,61 +226,59 @@ public class CasinoActivity extends AppCompatActivity
                 rotateAnimation.setDuration(random.nextInt(1600) + 2000);
                 rotateAnimation.setFillAfter(true);
                 rotateAnimation.setInterpolator(new DecelerateInterpolator());
-                rotateAnimation.setAnimationListener(new Animation.AnimationListener()
-                {
-                    @Override
-                    public void onAnimationStart(Animation animation)
-                    {
-                        spinning = true;
-                    }
+
+                rotateAnimation.setAnimationListener(new Animation.AnimationListener() {
 
                     @Override
-                    public void onAnimationEnd(Animation animation)
-                    {
+                    public void onAnimationStart(Animation animation) { spinning = true; }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+
                         spinning = false;
                         TextView t = (TextView) findViewById(R.id.tvScore);
 
-                        //Degree for the red colour landing.
-                        if (numberMapping[(degree-360) / 10] % 2 == 0)
-                        {
-                            if (mine.color == COLOR.RED)
-                            {
-                                //pay 2x
+                        // Degree for the red colour landing.
+                        if (numberMapping[(degree-360) / 10] % 2 == 0) {
+
+                            if (mine.color == COLOR.RED) {
+
+                                // Pay 2x.
                                 t.setText("WON €" + Integer.toString(mine.betAmount*2));
                                 Helper.AddBalance(mine, mine.betAmount*2);
-                            }
-                            else
-                            {
+
+                            } else {
+
                                 t.setText("LOST €" + Integer.toString(mine.betAmount));
                                 Helper.AddBalance(mine, -mine.betAmount);
                             }
                         }
 
-                        //Degree for the green colour landing.
-                        if (numberMapping[(degree-360) / 10] == 0)
-                        {
-                            if (mine.color == COLOR.GREEN)
-                            {
+                        // Degree for the green colour landing.
+                        if (numberMapping[(degree-360) / 10] == 0) {
+
+                            if (mine.color == COLOR.GREEN) {
+
                                 t.setText("WON €" + Integer.toString(mine.betAmount*8));
                                 Helper.AddBalance(mine, mine.betAmount*8);
-                            }
-                            else
-                            {
+
+                            } else {
+
                                 t.setText("LOST €" + Integer.toString(mine.betAmount));
                                 Helper.AddBalance(mine, -mine.betAmount);
                             }
                         }
 
-                        //Degree for the black colour landing.
-                        if (numberMapping[(degree-360) / 10] % 2 == 1)
-                        {
-                            if (mine.color == COLOR.BLACK)
-                            {
+                        // Degree for the black colour landing.
+                        if (numberMapping[(degree-360) / 10] % 2 == 1) {
+
+                            if (mine.color == COLOR.BLACK) {
+
                                 t.setText("WON €" + Integer.toString(mine.betAmount*2));
                                 Helper.AddBalance(mine, mine.betAmount*2);
-                            }
-                            else
-                            {
+
+                            } else {
+
                                 t.setText("LOST €" + Integer.toString(mine.betAmount));
                                 Helper.AddBalance(mine, -mine.betAmount);
                             }
@@ -288,8 +287,7 @@ public class CasinoActivity extends AppCompatActivity
                     }
 
                     @Override
-                    public void onAnimationRepeat(Animation animation)
-                    {
+                    public void onAnimationRepeat(Animation animation) {
 
                     }
                 });
@@ -305,14 +303,13 @@ public class CasinoActivity extends AppCompatActivity
         final ToggleButton black = findViewById(R.id.black);
         final ToggleButton red = findViewById(R.id.red);
 
-        green.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
-        {
+        green.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
-            {
-                if(isChecked)
-                {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if(isChecked) {
+
                     black.setChecked(false);
                     red.setChecked(false);
                     mine.color = COLOR.GREEN;
@@ -326,14 +323,14 @@ public class CasinoActivity extends AppCompatActivity
 
             }
         });
-        black.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
-        {
+
+        black.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
-            {
-                if(isChecked)
-                {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if(isChecked) {
+
                     green.setChecked(false);
                     red.setChecked(false);
                     mine.color = COLOR.BLACK;
@@ -347,14 +344,14 @@ public class CasinoActivity extends AppCompatActivity
 
             }
         });
-        red.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
-        {
+
+        red.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
-            {
-                if(isChecked)
-                {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if(isChecked) {
+
                     green.setChecked(false);
                     black.setChecked(false);
                     mine.color = COLOR.RED;
@@ -369,19 +366,14 @@ public class CasinoActivity extends AppCompatActivity
             }
         });
 
-
         green.setSelected(true);
     }
 
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        if(xToggle.onOptionsItemSelected(item))
-        {
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-            return true;
-        }
+        if(xToggle.onOptionsItemSelected(item)) { return true; }
 
         return super.onOptionsItemSelected(item);
     }
