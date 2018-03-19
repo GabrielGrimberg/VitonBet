@@ -1,11 +1,10 @@
-/*
-Name: LoginActivity
-
-Description: - Activity for a user to Login.
-             - Login with Email and Password.
-             - UI Enhanced.
-
-*/
+/***
+ * Name: LoginActivity
+ * Description: - Activity for a user to Login.
+ *              - Login with Email and Password.
+ *              - UI Enhanced.
+ *
+ **/
 
 package gabrielgrimberg.com.vitonbet;
 
@@ -30,15 +29,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class LoginActivity extends AppCompatActivity
-{
+public class LoginActivity extends AppCompatActivity {
+
     private EditText xLoginEmailField;
     private EditText xLoginPasswordField;
 
     private Button xLoginBtn;
     private Button xRegisterBtn;
 
-    //Access the login
+    // Access the login.
     private FirebaseAuth  xAuth;
 
     private ProgressDialog xProgress;
@@ -46,14 +45,14 @@ public class LoginActivity extends AppCompatActivity
     private DatabaseReference xDatabase;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         xAuth = FirebaseAuth.getInstance();
 
-        //Check inside the Users table.
+        // Check inside the Users table.
         xDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
 
         xProgress = new ProgressDialog(this);
@@ -64,11 +63,11 @@ public class LoginActivity extends AppCompatActivity
         xLoginBtn = (Button) findViewById(R.id.loginBtn);
         xRegisterBtn = (Button) findViewById(R.id.registerLBtn);
 
-        xRegisterBtn.setOnClickListener(new View.OnClickListener()
-        {
+        xRegisterBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
+
                 Intent loginRIntent = new Intent(LoginActivity.this, RegisterActivity.class);
                 loginRIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(loginRIntent);
@@ -76,38 +75,39 @@ public class LoginActivity extends AppCompatActivity
             }
         });
 
-        xLoginBtn.setOnClickListener(new View.OnClickListener()
-        {
+        xLoginBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
+
                 checkLogin();
 
             }
         });
     }
 
-    private void checkLogin()
-    {
+    private void checkLogin() {
+
         String email = xLoginEmailField.getText().toString().trim();
         String password = xLoginPasswordField.getText().toString().trim();
 
-        if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password))
-        {
+        if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
+
             xProgress.setMessage("Logging In...");
             xProgress.show();
 
-            xAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>()
-            {
+            xAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
                 @Override
-                public void onComplete(@NonNull Task<AuthResult> task)
-                {
-                    if(task.isSuccessful())
-                    {
+                public void onComplete(@NonNull Task<AuthResult> task) {
+
+                    if(task.isSuccessful()) {
+
                         checkUserExist();
-                    }
-                    else
-                    {
+
+                    } else {
+
                         xProgress.dismiss();
 
                         Toast.makeText(LoginActivity.this,
@@ -118,13 +118,12 @@ public class LoginActivity extends AppCompatActivity
 
                 }
             });
-        }
-        else
-        {
+
+        } else {
+
+            // This is the error checking if you leave some fields blank.
             xProgress.dismiss();
 
-            //TODO
-            //Better error checking.
             Toast.makeText(LoginActivity.this,
                     "Why did you leave some fields blank?",
                     Toast.LENGTH_LONG).show();
@@ -132,32 +131,31 @@ public class LoginActivity extends AppCompatActivity
         }
     }
 
-    //Check if user is in Database.
-    private void checkUserExist()
-    {
+    // Check if user is in Database.
+    private void checkUserExist() {
+
         final String user_id = xAuth.getCurrentUser().getUid();
 
-        //Check if the user exists in the database or not.
-        xDatabase.addValueEventListener(new ValueEventListener()
-        {
+        // Check if the user exists in the database or not.
+        xDatabase.addValueEventListener(new ValueEventListener() {
+
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot)
-            {
-                //If it has the user_id.
-                if(dataSnapshot.hasChild(user_id))
-                {
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                // If it has the user_id.
+                if(dataSnapshot.hasChild(user_id)) {
+
                     xProgress.dismiss();
 
                     Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
                     mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(mainIntent);
-                }
-                else
-                {
+
+                } else {
+
+                    // This is the error checking if the user doesn't have an account.
                     xProgress.dismiss();
 
-                    //TODO
-                    //Better error checking.
                     Toast.makeText(LoginActivity.this,
                             "Not in Database, please register.",
                             Toast.LENGTH_LONG).show();
@@ -167,12 +165,11 @@ public class LoginActivity extends AppCompatActivity
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError)
-            {
+            public void onCancelled(DatabaseError databaseError) {
+
 
             }
         });
-
 
     }
 }

@@ -2,7 +2,7 @@
  * Name: AccountActivity
  * Description: Activity where the user their details.
  * Note: Details displayed: Name, DOB, Email and Balance.
- */
+ **/
 
 package gabrielgrimberg.com.vitonbet;
 

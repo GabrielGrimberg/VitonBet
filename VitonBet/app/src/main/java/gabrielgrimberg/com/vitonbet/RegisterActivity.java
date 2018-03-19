@@ -1,12 +1,12 @@
-/*
-Name: RegisterActivity
-
-Description: - Activity for a user to Register.
-             - Register with: Username, Email, Password, Date of Birth and Phone Number.
-             - UI Enhanced.
-             - Error Checking - Password must match and Email must be valid.
-             - DOB Field improved.
-*/
+/***
+ * Name: RegisterActivity
+ *
+ * Description: - Activity for a user to Register.
+ *              - Register with: Username, Email, Password, Date of Birth and Phone Number.
+ *              - UI Enhanced.
+ *              - Error Checking - Password must match and Email must be valid.
+ *              - DOB Field improved.
+ **/
 
 package gabrielgrimberg.com.vitonbet;
 
@@ -34,9 +34,9 @@ import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegisterActivity extends AppCompatActivity
-{
-    //Register fields.
+public class RegisterActivity extends AppCompatActivity {
+
+    // Register fields.
     private EditText xNameField;
     private EditText xEmailField;
     private EditText xPasswordField;
@@ -44,30 +44,28 @@ public class RegisterActivity extends AppCompatActivity
     private EditText xDOBField;
     private EditText xPhoneField;
 
-    //Button to register.
+    // Button to register.
     private Button xRegisterBtn;
 
-    //Firebase connection vars.
+    // Firebase connection vars.
     private FirebaseAuth xAuth;
     private DatabaseReference xDatabase;
 
-    //Progress bar.
+    // Progress bar.
     private ProgressDialog xProgress;
 
-    //The calendar box to pick your DOB.
+    // The calendar box to pick your DOB.
     private DatePickerDialog datePickerDialog;
 
-
-
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
         xAuth = FirebaseAuth.getInstance(); //Get instance of current user.
 
-        //Adding to db when user registers.
+        // Adding to db when user registers.
         xDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
 
         xProgress = new ProgressDialog(this);
@@ -81,45 +79,45 @@ public class RegisterActivity extends AppCompatActivity
 
         xRegisterBtn = (Button) findViewById(R.id.registerBtn);
 
-        //When the button is clicked go to register method.
-        xRegisterBtn.setOnClickListener(new View.OnClickListener()
-        {
+        // When the button is clicked go to register method.
+        xRegisterBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
+
                 startRegister();
             }
         });
 
-        //When the DOB field is click show the calendar.
-        xDOBField.setOnClickListener(new View.OnClickListener()
-        {
+        // When the DOB field is click show the calendar.
+        xDOBField.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
+
                 datePickerDialog.show();
             }
         });
 
-        //Set up Calendar view for the datePickerDialog.
+        // Set up Calendar view for the datePickerDialog.
         Calendar calendar = Calendar.getInstance();
 
-        //Make the date view pop up.
-        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener()
-        {
+        // Make the date view pop up.
+        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
             @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
-            {
-                //Select the date and dismiss the date picker dialog.
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                // Select the date and dismiss the date picker dialog.
                 xDOBField.setText(dayOfMonth+"/"+monthOfYear+"/"+year);
                 datePickerDialog.dismiss();
             }
         },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));
     }
 
-    //Method to validate registration and check if input is correct and suitable.
-    private void startRegister()
-    {
+    // Method to validate registration and check if input is correct and suitable.
+    private void startRegister() {
+
         final String name = xNameField.getText().toString().trim();
         final String dob = xDOBField.getText().toString().trim();
         final String phone = xPhoneField.getText().toString().trim();
@@ -128,7 +126,7 @@ public class RegisterActivity extends AppCompatActivity
         String password = xPasswordField.getText().toString().trim();
         String repassword = xRePasswordField.getText().toString().trim();
 
-        //Check if user is submitting a field empty.
+        // Check if user is submitting a field empty.
         if(!TextUtils.isEmpty(name) &&
                 !TextUtils.isEmpty(email) &&
                 !TextUtils.isEmpty(password) &&
@@ -136,20 +134,20 @@ public class RegisterActivity extends AppCompatActivity
                 !TextUtils.isEmpty(dob) &&
                 !TextUtils.isEmpty(phone) &&
                 password.equals(repassword) &&
-                isEmailValid(email))
+                isEmailValid(email)) {
 
-        {
             xProgress.setMessage("Signing Up...");
             xProgress.show();
 
-            //If input is good and nothing wrong then add it to th database and show up the home page.
-            xAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>()
-            {
+            // If input is good and nothing wrong then add it to th database and show up the home page.
+            xAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
                 @Override
-                public void onComplete(@NonNull Task<AuthResult> task)
-                {
-                   if(task.isSuccessful())
-                   {
+                public void onComplete(@NonNull Task<AuthResult> task) {
+
+                   if(task.isSuccessful()) {
+
                        String user_id = xAuth.getCurrentUser().getUid();
 
                        DatabaseReference current_user_db = xDatabase.child(user_id);
@@ -160,7 +158,6 @@ public class RegisterActivity extends AppCompatActivity
                        current_user_db.child("phone").setValue(phone);
                        current_user_db.child("balance").setValue(1000);
 
-
                        xProgress.dismiss();
 
                        Intent mainIntent = new Intent(RegisterActivity.this, MainActivity.class);
@@ -169,10 +166,9 @@ public class RegisterActivity extends AppCompatActivity
                    }
                 }
             });
-        }
-        //If an input was wrong display an error message.
-        else
-        {
+
+        } else { //If an input was wrong display an error message.
+
             Toast.makeText(RegisterActivity.this,
                     "Please make sure that all fields are filled out and that the password matches when you re-entered it. " +
                             "The email must also be valid and number must have 10 digits.",
@@ -180,15 +176,15 @@ public class RegisterActivity extends AppCompatActivity
         }
     }
 
-    //Reference from : https://stackoverflow.com/questions/6119722/how-to-check-edittexts-text-is-email-address-or-not
-    //Method to check if email is legit
-    public static boolean isEmailValid(String email)
-    {
+    /* Reference from : https://stackoverflow.com/questions/6119722/how-to-check-edittexts-text-is-email-address-or-not */
+    // Method to check if email is legit
+    public static boolean isEmailValid(String email) {
+
         String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
         Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(email);
 
         return matcher.matches();
     }
-    //End of Reference
+    /* End of Reference */
 }

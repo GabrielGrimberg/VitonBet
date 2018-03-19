@@ -1,12 +1,11 @@
 /***
  * Name: CasinoActivity
  * Description:  - Casino Mode.
-                 - Spinning the wheel to win or lose.
-                 - If lands on green: 4x amount
-                 - If you pick red or green and it lands on that then x2 amount.
-                 - Else lose.
-
- */
+ *               - Spinning the wheel to win or lose.
+ *               - If lands on green: 4x amount
+ *               - If you pick red or green and it lands on that then x2 amount.
+ *               - Else lose.
+ **/
 package gabrielgrimberg.com.vitonbet;
 
 import android.content.Intent;
