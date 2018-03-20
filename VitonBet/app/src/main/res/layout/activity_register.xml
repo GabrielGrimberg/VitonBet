@@ -130,5 +130,6 @@
         android:layout_centerHorizontal="true"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/ai_primarylogowhite" />
+
 </RelativeLayout>
 

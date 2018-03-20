@@ -137,7 +137,4 @@
 
     </android.support.v4.widget.DrawerLayout>
 
-    <!-- Start of Top Navigator -->
-    <!-- End Top Navigator -->
-
 </RelativeLayout>

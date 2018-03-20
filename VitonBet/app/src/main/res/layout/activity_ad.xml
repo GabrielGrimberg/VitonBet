@@ -15,7 +15,7 @@
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/ai_primarylogowhite" />
 
-    <!-- view for AdMob Interstitial Ad -->
+    <!-- View for AdMob Interstitial Ad -->
     <TextView
         android:id="@+id/app_title"
         android:layout_width="wrap_content"
